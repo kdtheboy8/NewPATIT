@@ -210,7 +210,7 @@
                   <Component id="jPanel4" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Component id="LBLLogo2" alignment="1" pref="878" max="32767" attributes="0"/>
+              <Component id="LBLLogo2" alignment="1" pref="849" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -255,7 +255,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace pref="460" max="32767" attributes="0"/>
+                          <EmptySpace pref="422" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jButton1" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                               <Component id="jButton2" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
@@ -265,7 +265,7 @@
                                   <Component id="jButton3" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="328" max="32767" attributes="0"/>
+                          <EmptySpace pref="337" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

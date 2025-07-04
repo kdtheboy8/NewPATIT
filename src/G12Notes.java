@@ -110,6 +110,11 @@ public class G12Notes extends javax.swing.JFrame
         BtnQuiz.setBackground(new java.awt.Color(0, 0, 0));
         BtnQuiz.setForeground(new java.awt.Color(255, 255, 255));
         BtnQuiz.setText("Quiz");
+        BtnQuiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnQuizActionPerformed(evt);
+            }
+        });
 
         BtnFAQs.setBackground(new java.awt.Color(0, 0, 0));
         BtnFAQs.setForeground(new java.awt.Color(255, 255, 255));
@@ -269,6 +274,10 @@ public class G12Notes extends javax.swing.JFrame
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BtnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuizActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnQuizActionPerformed
 
     /**
      * @param args the command line arguments
