@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="99" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="586" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="539" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="336" max="-2" attributes="0"/>
+                  <EmptySpace pref="45" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="jTextArea1">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="text" type="java.lang.String" value="THE MINERAL REVOLUTION IN SOUTH AFRICA (1867-1914)&#xa;=================================================&#xa;&#xa;1. ORIGINS AND KEY DISCOVERIES&#xa;------------------------------&#xa;&#xa;1.1 Diamond Discoveries&#xa;- 1867: First diamond found at Hopetown (21.25 carat &quot;Eureka&quot;)&#xa;- 1871: Kimberley Mine discovered (&quot;Big Hole&quot;)&#xa;  * Dimensions: 463m wide, 240m deep&#xa;  * Excavated: 22.5 million tons of earth&#xa;  * Yield: 14.5 million carats (1867-1914)&#xa;- Major Companies:&#xa;  * De Beers Consolidated Mines (founded 1888)&#xa;  * Cecil Rhodes&apos; monopoly controlled 90% of world diamonds by 1891&#xa;&#xa;1.2 Gold Discoveries&#xa;- 1886: George Harrison finds gold on Witwatersrand&#xa;- Key Gold Fields:&#xa;  * Main Reef: 62km gold-bearing conglomerate&#xa;  * Central Rand: Highest grade ore (10g/ton)&#xa;  * West Rand: Lower grade but extensive deposits&#xa;- Production Growth:&#xa;  * 1887: &#xa3;350,000&#xa;  * 1898: &#xa3;16 million (25% of world output)&#xa;  * 1913: &#xa3;32 million&#xa;&#xa;2. ECONOMIC TRANSFORMATION&#xa;--------------------------&#xa;&#xa;2.1 Mining Technology&#xa;- Diamond Mining:&#xa;  * 1870s: Hand digging &#x2192; steam-powered excavators&#xa;  * 1890s: Cementation process for unstable ground&#xa;- Gold Mining:&#xa;  * 1890: MacArthur-Forrest cyanide process (95% recovery)&#xa;  * 1903: Deep-level mining below 1,000m&#xa;  * 1913: 56 gold mines operating below 1,200m&#xa;&#xa;2.2 Infrastructure Development&#xa;- Railways:&#xa;  * 1876: Cape Town-Kimberley line completed&#xa;  * 1892: Johannesburg reached (1,000km from coast)&#xa;  * 1910: 7,000 miles of track&#xa;- Electricity:&#xa;  * 1891: First power station at Kimberley&#xa;  * 1909: Victoria Falls Power Company (50MW capacity)&#xa;&#xa;2.3 Capital Investment&#xa;- British Investment:&#xa;  * 1886-1899: &#xa3;75 million&#xa;  * 1900-1914: &#xa3;125 million&#xa;- Stock Markets:&#xa;  * Johannesburg Stock Exchange (1887)&#xa;  * 1910: 600 mining companies listed&#xa;&#xa;3. LABOR SYSTEM&#xa;---------------&#xa;&#xa;3.1 Migrant Labour&#xa;- Statistics:&#xa;  * 1896: 80,000 African miners&#xa;  * 1913: 300,000 under contract&#xa;- Recruitment:&#xa;  * WNLA (Witwatersrand Native Labour Association) formed 1900&#xa;  * 1911: 100,000 workers from Mozambique&#xa;- Compound System:&#xa;  * 1903: 66 compounds housing 83,000 men&#xa;  * Mortality rate: 5% annually (1906 data)&#xa;&#xa;3.2 Racial Division of Labor&#xa;- 1911 Mines and Works Act:&#xa;  * Reserved skilled jobs for whites&#xa;  * &quot;Colour Bar&quot; enforced wage disparities:&#xa;    - White miners: &#xa3;300/year&#xa;    - Black miners: &#xa3;30/year&#xa;- 1913 Natives Land Act:&#xa;  * Restricted Africans to 7% of land&#xa;  * Created labour reservoir for mines&#xa;&#xa;4. SOCIAL IMPACT&#xa;----------------&#xa;&#xa;4.1 Urbanization&#xa;- Johannesburg Growth:&#xa;  * 1886: 3,000 inhabitants&#xa;  * 1904: 99,000 (including 67,000 whites)&#xa;  * 1914: 250,000&#xa;- New Towns:&#xa;  * Kimberley: 1885 population 30,000&#xa;  * Springs, Boksburg, and Krugersdorp developed&#xa;&#xa;4.2 Health Consequences&#xa;- Mine Diseases:&#xa;  * Phthisis (miner&apos;s lung): 25% incidence by 1910&#xa;  * 1912: 1,100 compensation cases filed&#xa;- Compound Conditions:&#xa;  * 1907 Report:&#xa;    - 3.5m&#xb2; living space per worker&#xa;    - TB infection rate 60%&#xa;&#xa;5. POLITICAL CONSEQUENCES&#xa;-------------------------&#xa;&#xa;5.1 Anglo-Boer War (1899-1902)&#xa;- Gold Factor:&#xa;  * Transvaal gold production exceeded British estimates&#xa;  * 1898: Transvaal budget surplus &#xa3;2.4 million&#xa;- War Costs:&#xa;  * British expenditure: &#xa3;217 million&#xa;  * 45,000 deaths (mainly from disease)&#xa;&#xa;5.2 Union of South Africa (1910)&#xa;- Constitutional Provisions:&#xa;  * Voting rights restricted to whites&#xa;  * Mines are exempted from certain labour laws&#xa;- Economic Control:&#xa;  * 1911: 85% of industry controlled by British capital&#xa;  * Chamber of Mines established as a powerful lobby&#xa;&#xa;6. STATISTICAL SUMMARY&#xa;----------------------&#xa;&#xa;6.1 Production Data (1914)&#xa;- Diamonds:&#xa;  * 6.5 million carats annually&#xa;  * 95% from De Beers mines&#xa;- Gold:&#xa;  * 300 tons annually&#xa;  * 40% of world output&#xa;&#xa;6.2 Labour Force (1911 Census)&#xa;- Mining Workforce:&#xa;  * White: 25,000&#xa;  * Black: 275,000&#xa;- Wage Disparity:&#xa;  * White: 12 shillings/day&#xa;  * Black: 1 shilling/day&#xa;&#xa;7. LONG-TERM LEGACIES&#xa;---------------------&#xa;- Established racial capitalism&#xa;- Created a migrant labour system that continued under apartheid&#xa;- Made South Africa the world&apos;s leading mineral economy&#xa;- Concentrated economic power in the white minority&#xa;- Laid the foundations for apartheid legislation&#xa;&#xa;TIMELINE OF KEY EVENTS&#xa;----------------------&#xa;1867 - First diamond discovery&#xa;1871 - Kimberley Mine established&#xa;1886 - Witwatersrand gold discovery&#xa;1887 - Johannesburg Stock Exchange founded&#xa;1888 - De Beers Consolidated Mines formed&#xa;1899 - Anglo-Boer War begins&#xa;1902 - Peace of Vereeniging&#xa;1910 - The Union of South Africa was formed&#xa;1911 - Mines and Works Act passed&#xa;1913 - Natives Land Act enacted"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Exit"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

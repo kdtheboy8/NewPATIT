@@ -27,8 +27,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="BtnBack" min="-2" pref="58" max="-2" attributes="0"/>
-                      <EmptySpace pref="121" max="32767" attributes="0"/>
+                      <Component id="BtnBack" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="64" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="LBLLogo" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
@@ -38,6 +38,7 @@
                                   <Component id="LBLSurname" min="-2" max="-2" attributes="0"/>
                                   <Component id="LBLPassword" min="-2" max="-2" attributes="0"/>
                                   <Component id="LBLAddress" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LBLCellNo" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -46,13 +47,20 @@
                                   <Component id="txfAddress" max="32767" attributes="0"/>
                                   <Component id="txfPassword" max="32767" attributes="0"/>
                                   <Component id="CMBRole" alignment="0" pref="150" max="32767" attributes="0"/>
+                                  <Component id="txfCellNo" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <Component id="BtnSignUp" min="-2" pref="192" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="218" max="32767" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="LBLfNameStatus" max="32767" attributes="0"/>
+                  <Component id="LBLSnameStatus" max="32767" attributes="0"/>
+                  <Component id="LBLCellNoStatus" pref="128" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,34 +77,49 @@
                       <Component id="BtnBack" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LBLFname" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txfFname" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="93" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LBLFname" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfFname" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LBLSurname" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfSurname" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LBLSnameStatus" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LBLAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LBLPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LBLRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="CMBRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LBLCellNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfCellNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LBLCellNoStatus" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="57" max="32767" attributes="0"/>
+                      <Component id="BtnSignUp" min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="LBLfNameStatus" min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LBLSurname" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txfSurname" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LBLAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txfAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LBLPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txfPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LBLRole" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="CMBRole" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
-              <Component id="BtnSignUp" min="-2" pref="41" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -171,15 +194,34 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
             <StringItem index="0" value="Please select your role"/>
-            <StringItem index="1" value="Student "/>
+            <StringItem index="1" value="Student"/>
             <StringItem index="2" value="Teacher"/>
-            <StringItem index="3" value=" "/>
+            <StringItem index="3" value=""/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CMBRoleActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LBLfNameStatus">
+    </Component>
+    <Component class="javax.swing.JLabel" name="LBLSnameStatus">
+    </Component>
+    <Component class="javax.swing.JLabel" name="LBLCellNo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cell Number"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txfCellNo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txfCellNoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LBLCellNoStatus">
     </Component>
   </SubComponents>
 </Form>

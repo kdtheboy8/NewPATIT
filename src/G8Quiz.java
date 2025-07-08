@@ -120,7 +120,7 @@ public class G8Quiz extends javax.swing.JFrame
 
         BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
         BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSettings.setText("Settings ");
+        BtnSettings.setText("Log Out");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

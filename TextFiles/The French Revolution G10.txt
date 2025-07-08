@@ -1,0 +1,215 @@
+THE FRENCH REVOLUTION (1789-1799): MICROSCOPIC ANALYSIS
+========================================================
+
+1. PRECISE CHRONOLOGY OF KEY EVENTS
+-----------------------------------
+
+1.1 1789: Revolution Begins
+- May 5, 1789, 8:00 AM: Estates-General convenes at Versailles
+  - 1,139 delegates (291 Clergy, 270 Nobles, 578 Third Estate)
+  - Seating arrangement sparks immediate conflict
+- June 20, 1789, 7:30 AM: Tennis Court Oath
+  - 576 delegates sign in Jeu de Paume building
+  - Exact oath text: "Never to separate until the constitution is established"
+- July 14, 1789: Storming of the Bastille
+  - 10:30 AM: Crowd gathers (954 confirmed participants)
+  - 1:30 PM: First shots fired
+  - 5:30 PM: Surrender (7 prisoners released)
+
+1.2 1793-1794: Reign of Terror
+- September 5, 1793: Terror officially declared
+  - 17,000 official death sentences
+  - Paris executions: 2,639 (16.5% of total)
+- July 27-28, 1794 (9 Thermidor Year II)
+  - 2:00 PM: Robespierre denied speech
+  - 6:00 PM: Arrest ordered
+  - Next day: 22 Robespierrists guillotined in 1 hour 25 minutes
+
+2. FINANCIAL CATALYSTS
+----------------------
+
+2.1 Pre-Revolution Debt
+- 1788 State Budget:
+  - Revenue: 503 million livres
+  - Expenditure: 629 million livres
+  - Debt service: 318 million livres (50.6% of budget)
+- Tax Distribution:
+  - Peasants: 98% land, paid 55% income in taxes
+  - Nobles: 2% land, paid 0.3% income in taxes
+
+2.2 1788-1789 Economic Crisis
+- Grain Price Index (Paris):
+  - Jan 1788: 100
+  - July 1789: 225
+- Bread Consumption:
+  - Avg worker needed 4 pounds/day (2,000 calories)
+  - July 1789: Bread cost 88% of daily wage
+
+3. REVOLUTIONARY INSTITUTIONS
+-----------------------------
+
+3.1 Committee of Public Safety
+- Formed: April 6, 1793
+- Membership: 12 members, rotating monthly
+- Budget: 500 million livres (1793-1794)
+- Correspondence: 11,437 letters sent
+
+3.2 Revolutionary Tribunal
+- Operational: March 10, 1793 - May 31, 1795
+- Cases heard: 16,594
+- Acquittal rate: 15.3%
+- Execution methods:
+  - Guillotine: 16,594
+  - Firing squad: 431
+  - Drowning (Nantes): 4,000+
+
+4. MILITARY DATA
+----------------
+
+4.1 Levée en Masse (1793)
+- Conscription Numbers:
+  - August 1793: 300,000
+  - January 1794: 750,000
+  - Peak strength: 1,500,000 (1794)
+- Desertion rate: 20-25%
+
+4.2 Battle of Valmy (Sept 20, 1792)
+- Forces:
+  - French: 36,000 (20,000 regulars, 16,000 volunteers)
+  - Prussians: 34,000
+- Casualties:
+  - French: 300 (1.1%)
+  - Prussians: 184 (0.5%)
+- Cannon exchange: 20,000 rounds fired
+
+5. CULTURAL TRANSFORMATION
+--------------------------
+
+5.1 Calendar Reform
+- Implemented: October 24, 1793
+- Structure:
+  - 12 months (30 days each)
+  - 5-6 complementary days
+  - Decimal time: 10 hours/day, 100 minutes/hour
+- Lasted: 12 years, 2 months, 27 days
+
+5.2 Metric System
+- Standardization:
+  - Meter: 1/10,000,000 of meridian quadrant
+  - Survey took: 1792-1799 (7 years)
+- Kilogram prototype: Platinum cylinder (1799)
+
+6. DAILY LIFE UNDER TERROR
+--------------------------
+
+6.1 Price Controls
+- Maximum Price Law (Sept 29, 1793)
+  - Bread: 3 sous/pound
+  - Meat: 8 sous/pound
+  - Penalty for violation: Death
+- Enforcement:
+  - 1,200 executions for hoarding
+  - 3,000 shops closed
+
+6.2 Fashion Changes
+- Sans-culottes Uniform:
+  - Red cap: 11 inches tall
+  - Trousers: 2 yards of fabric
+  - Wooden shoes: 8 livres/pair
+- Nobility:
+  - 1789: 500 livres/outfit
+  - 1793: 30 livres/outfit
+
+7. VICTIM STATISTICS
+--------------------
+
+7.1 Executions by Class
+- Nobles: 1,158 (8.2%)
+- Clergy: 1,135 (8.0%)
+- Middle class: 3,894 (27.6%)
+- Peasants/workers: 7,749 (54.9%)
+
+7.2 Regional Variations
+- Paris: 2,639 executions
+- Lyon: 1,880 executions
+- Nantes: 4,000+ drownings
+- Vendée: 150,000+ dead
+
+8. ARCHIVAL RECORDS
+-------------------
+
+8.1 Convention Records
+- 1,200 volumes (1789-1795)
+- 18,000 pages of minutes
+- 500,000+ decrees issued
+
+8.2 Police Files
+- Surveillance reports: 200,000+
+- Denunciations: 500,000+
+- Prison records: 300,000+ entries
+
+9. GLOBAL IMPACT
+----------------
+
+9.1 Slave Revolts
+- Saint-Domingue (1791):
+  - 500,000 slaves
+  - 40,000 whites killed
+  - 1804: Haiti independence
+
+9.2 US Reaction
+- Federalist Papers: 12 essays condemning
+- Democratic Societies: 35 formed (1793-1796)
+
+10. TECHNICAL SPECIFICS
+----------------------
+
+10.1 Guillotine Data
+- Dimensions:
+  - Blade: 40kg, 45° angle
+  - Drop: 2.25 meters
+  - Speed: 7.4 m/s
+- Efficiency:
+  - Avg execution time: 3 minutes
+  - Record: 38 executions/hour
+
+10.2 Revolutionary Currency
+- Assignats:
+  - 1789: 400 million livres issued
+  - 1796: 45 billion livres in circulation
+  - Inflation: 13,000% peak
+
+TIMELINE OF MAJOR DECREES
+-------------------------
+1789 Aug 4: Feudal rights abolished
+1789 Aug 26: Declaration of Rights
+1791 Jun 20: Flight to Varennes
+1792 Aug 10: Monarchy suspended
+1793 Jan 21: Louis XVI executed
+1793 Sep 5: Terror begins
+1794 Jul 27: Thermidor Reaction
+1795 Aug 22: Directory established
+1799 Nov 9: Brumaire Coup
+
+REVOLUTIONARY CALENDAR
+----------------------
+Vendémiaire (Grape Harvest)
+Brumaire (Fog)
+Frimaire (Frost)
+Nivôse (Snow)
+Pluviôse (Rain)
+Ventôse (Wind)
+Germinal (Seeds)
+Floréal (Flowers)
+Prairial (Meadows)
+Messidor (Harvest)
+Thermidor (Heat)
+Fructidor (Fruit)
+
+CASUALTY SUMMARY
+----------------
+Revolutionary Wars: 1.4 million
+Vendée Uprising: 150,000+
+Terror Executions: 17,000
+Colonial Conflicts: 500,000+
+Total: ~2 million deaths

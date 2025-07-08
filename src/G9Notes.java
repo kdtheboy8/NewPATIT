@@ -119,7 +119,12 @@ public class G9Notes extends javax.swing.JFrame
 
         BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
         BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSettings.setText("Settings ");
+        BtnSettings.setText("Log Out");
+        BtnSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSettingsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -282,6 +287,10 @@ public class G9Notes extends javax.swing.JFrame
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BtnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSettingsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSettingsActionPerformed
 
     /**
      * @param args the command line arguments

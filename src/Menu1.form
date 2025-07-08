@@ -110,7 +110,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="BtnChat" max="32767" attributes="0"/>
               <Component id="BtnNotes" alignment="0" max="32767" attributes="0"/>
               <Component id="BtnQuiz" pref="100" max="32767" attributes="0"/>
               <Component id="BtnFAQs" alignment="0" max="32767" attributes="0"/>
@@ -121,32 +120,19 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="BtnChat" min="-2" pref="35" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="BtnNotes" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="67" max="32767" attributes="0"/>
                   <Component id="BtnQuiz" min="-2" pref="41" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="67" max="32767" attributes="0"/>
                   <Component id="BtnFAQs" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="67" max="32767" attributes="0"/>
                   <Component id="BtnSettings" min="-2" pref="46" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="68" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="BtnChat">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Chat"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="BtnNotes">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -157,6 +143,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Notes"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnNotesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnQuiz">
           <Properties>
@@ -168,6 +157,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Quiz"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnQuizActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnFAQs">
           <Properties>
@@ -179,6 +171,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="FAQs"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnFAQsActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnSettings">
           <Properties>
@@ -188,7 +183,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Settings "/>
+            <Property name="text" type="java.lang.String" value="Log Out"/>
           </Properties>
         </Component>
       </SubComponents>

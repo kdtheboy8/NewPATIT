@@ -120,7 +120,7 @@ public class G8Notes extends javax.swing.JFrame
 
         BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
         BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSettings.setText("Settings ");
+        BtnSettings.setText("Log Out");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -207,7 +207,7 @@ public class G8Notes extends javax.swing.JFrame
                     .addComponent(jLabel1)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jButton3))
@@ -287,6 +287,8 @@ public class G8Notes extends javax.swing.JFrame
     }//GEN-LAST:event_BtnHelpMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

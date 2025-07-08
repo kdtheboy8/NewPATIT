@@ -287,7 +287,8 @@ public class TermNotes extends javax.swing.JFrame
     }//GEN-LAST:event_BtnHelpMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new IndustrialRevolution().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

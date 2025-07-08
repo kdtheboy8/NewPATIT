@@ -1,3 +1,12 @@
+
+import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -39,6 +48,11 @@ public class SignUp extends javax.swing.JFrame {
         BtnSignUp = new javax.swing.JButton();
         BtnBack = new javax.swing.JButton();
         CMBRole = new javax.swing.JComboBox<>();
+        LBLfNameStatus = new javax.swing.JLabel();
+        LBLSnameStatus = new javax.swing.JLabel();
+        LBLCellNo = new javax.swing.JLabel();
+        txfCellNo = new javax.swing.JTextField();
+        LBLCellNoStatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,7 +91,20 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
-        CMBRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select your role", "Student ", "Teacher", " " }));
+        CMBRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please select your role", "Student", "Teacher", "" }));
+        CMBRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CMBRoleActionPerformed(evt);
+            }
+        });
+
+        LBLCellNo.setText("Cell Number");
+
+        txfCellNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfCellNoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,8 +114,8 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(BtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                        .addComponent(BtnBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(LBLLogo)
                             .addGroup(layout.createSequentialGroup()
@@ -97,16 +124,23 @@ public class SignUp extends javax.swing.JFrame {
                                     .addComponent(LBLRole)
                                     .addComponent(LBLSurname)
                                     .addComponent(LBLPassword)
-                                    .addComponent(LBLAddress))
+                                    .addComponent(LBLAddress)
+                                    .addComponent(LBLCellNo))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txfFname)
                                     .addComponent(txfSurname)
                                     .addComponent(txfAddress)
                                     .addComponent(txfPassword)
-                                    .addComponent(CMBRole, 0, 150, Short.MAX_VALUE)))))
+                                    .addComponent(CMBRole, 0, 150, Short.MAX_VALUE)
+                                    .addComponent(txfCellNo)))))
                     .addComponent(BtnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LBLfNameStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LBLSnameStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LBLCellNoStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
+                .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,29 +152,40 @@ public class SignUp extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(BtnBack)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLFname)
-                    .addComponent(txfFname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLSurname)
-                    .addComponent(txfSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLAddress)
-                    .addComponent(txfAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLPassword)
-                    .addComponent(txfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLRole)
-                    .addComponent(CMBRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(BtnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LBLFname)
+                            .addComponent(txfFname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LBLSurname)
+                            .addComponent(txfSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LBLSnameStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LBLAddress)
+                            .addComponent(txfAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LBLPassword)
+                            .addComponent(txfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LBLRole)
+                            .addComponent(CMBRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LBLCellNo)
+                            .addComponent(txfCellNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LBLCellNoStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addComponent(BtnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LBLfNameStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
         );
 
         pack();
@@ -151,7 +196,87 @@ public class SignUp extends javax.swing.JFrame {
         String sName = txfSurname.getText();
         String email = txfAddress.getText();
         String pass = txfPassword.getText();           
-        String role = CMBRole.toString();
+        String role = CMBRole.getSelectedItem().toString();
+        String cellNo = txfCellNo.getText();
+        
+        //Validation check 
+        //fName - Presence check
+        if (fName.length() == 0) 
+        {
+           LBLfNameStatus.setText("Please enter a name");
+           txfFname.setBackground(Color.red);
+           
+        }
+        else
+        {
+            LBLfNameStatus.setText("Entered");
+            txfFname.setBackground(Color.green);
+        }
+       
+        
+        //surname - Presence check
+        if (sName.length() == 0) 
+        {
+            LBLSnameStatus.setText("Please enter a surname"); 
+            txfSurname.setBackground(Color.red);
+        }
+        else
+        {
+            LBLSnameStatus.setText("Surname has been entered"); 
+            txfSurname.setBackground(Color.green);
+        }
+        
+        //cellNo - length check
+        if (cellNo.length() == 10) 
+        {
+            LBLCellNoStatus.setText("Number is valid"); 
+            txfCellNo.setBackground(Color.green);
+        }
+        else
+        {
+            LBLCellNoStatus.setText("Number must be 10 digits"); 
+            txfCellNo.setBackground(Color.red);
+        }
+        
+        String textToAdd =fName+"#"+sName+"#"+email+"#"+pass+"#"+role+"#"+cellNo;
+        String filePath =  "/Users/kudamlambo/Documents/PAT IT /JFrame/TextFiles/UserDetails.txt";
+        
+        String wordToCheck = "war"; // 🔍 Word to search for (case-insensitive)
+        int wordCount = 0;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                // Remove punctuation and make everything lowercase
+                line = line.replaceAll("[^a-zA-Z ]", "").toLowerCase();
+
+                // Split line into words
+                String[] words = line.split("\\s+");
+
+                for (String word : words) 
+                {
+                    if (word.equals(email)) 
+                    {
+                        wordCount++;
+                    }
+                }
+            }
+        try {
+            // true means append to file, false would overwrite
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+            writer.write(textToAdd);
+            writer.close();
+            JOptionPane.showMessageDialog(null,"You have successfully signed up");
+        } 
+        catch (IOException e) 
+        {
+            JOptionPane.showMessageDialog(null, "Please try again");
+           
+        }
+            
+        
+       
     }//GEN-LAST:event_BtnSignUpActionPerformed
 
     private void BtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBackActionPerformed
@@ -162,6 +287,14 @@ public class SignUp extends javax.swing.JFrame {
     private void txfSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfSurnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txfSurnameActionPerformed
+
+    private void CMBRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMBRoleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CMBRoleActionPerformed
+
+    private void txfCellNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfCellNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfCellNoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,12 +336,17 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JButton BtnSignUp;
     private javax.swing.JComboBox<String> CMBRole;
     private javax.swing.JLabel LBLAddress;
+    private javax.swing.JLabel LBLCellNo;
+    private javax.swing.JLabel LBLCellNoStatus;
     private javax.swing.JLabel LBLFname;
     private javax.swing.JLabel LBLLogo;
     private javax.swing.JLabel LBLPassword;
     private javax.swing.JLabel LBLRole;
+    private javax.swing.JLabel LBLSnameStatus;
     private javax.swing.JLabel LBLSurname;
+    private javax.swing.JLabel LBLfNameStatus;
     private javax.swing.JTextField txfAddress;
+    private javax.swing.JTextField txfCellNo;
     private javax.swing.JTextField txfFname;
     private javax.swing.JTextField txfPassword;
     private javax.swing.JTextField txfSurname;
