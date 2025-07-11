@@ -7,7 +7,7 @@
  *
  * @author kudamlambo
  */
-public class UserSignUp extends SignUp
+public class UserSignUp 
 {
     private String firstName, surname, email, password;
     private 

@@ -1,10 +1,11 @@
 
 import java.awt.Color;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /*
@@ -189,6 +190,7 @@ public class SignUp extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSignUpActionPerformed
@@ -198,6 +200,34 @@ public class SignUp extends javax.swing.JFrame {
         String pass = txfPassword.getText();           
         String role = CMBRole.getSelectedItem().toString();
         String cellNo = txfCellNo.getText();
+        
+        //email search
+        String filePath =  "/Users/kudamlambo/Documents/PAT IT /JFrame/TextFiles/UserDetails.txt";
+        try {
+            Scanner scFile = new Scanner(new File(filePath));
+           
+            while (scFile.hasNextLine()) {
+                Scanner scLine = new Scanner(scFile.nextLine()).useDelimiter("#");
+                scLine.next();
+                scLine.next();
+                String emailInFile = scLine.next();
+                
+                if (emailInFile.equalsIgnoreCase(email)) {
+                    JOptionPane.showMessageDialog(null, "You have already signed up using the entered email");
+                    
+                    this.setVisible(false);
+                    Login loginScreen = new Login();
+                    loginScreen.setVisible(true);
+                    
+                }
+            }
+            
+        } catch (FileNotFoundException ex) {
+            System.out.println("File Not Found!");
+        }
+        
+        
+        
         
         //Validation check 
         //fName - Presence check
@@ -239,30 +269,14 @@ public class SignUp extends javax.swing.JFrame {
         }
         
         String textToAdd =fName+"#"+sName+"#"+email+"#"+pass+"#"+role+"#"+cellNo;
-        String filePath =  "/Users/kudamlambo/Documents/PAT IT /JFrame/TextFiles/UserDetails.txt";
         
         String wordToCheck = "war"; // 🔍 Word to search for (case-insensitive)
         int wordCount = 0;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                // Remove punctuation and make everything lowercase
-                line = line.replaceAll("[^a-zA-Z ]", "").toLowerCase();
-
-                // Split line into words
-                String[] words = line.split("\\s+");
-
-                for (String word : words) 
-                {
-                    if (word.equals(email)) 
-                    {
-                        wordCount++;
-                    }
-                }
-            }
-        try {
+        
+            
+        try 
+        {
             // true means append to file, false would overwrite
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
             writer.write(textToAdd);

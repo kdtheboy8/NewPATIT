@@ -39,7 +39,6 @@ public class G8Quiz extends javax.swing.JFrame
         LBLlogo = new javax.swing.JLabel();
         BtnHelp = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        BtnChat = new javax.swing.JButton();
         BtnNotes = new javax.swing.JButton();
         BtnQuiz = new javax.swing.JButton();
         BtnFAQs = new javax.swing.JButton();
@@ -102,10 +101,6 @@ public class G8Quiz extends javax.swing.JFrame
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        BtnChat.setBackground(new java.awt.Color(0, 0, 0));
-        BtnChat.setForeground(new java.awt.Color(255, 255, 255));
-        BtnChat.setText("Chat");
-
         BtnNotes.setBackground(new java.awt.Color(0, 0, 0));
         BtnNotes.setForeground(new java.awt.Color(255, 255, 255));
         BtnNotes.setText("Notes");
@@ -126,7 +121,6 @@ public class G8Quiz extends javax.swing.JFrame
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BtnChat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
             .addComponent(BtnFAQs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -136,8 +130,6 @@ public class G8Quiz extends javax.swing.JFrame
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnChat, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,6 +265,7 @@ public class G8Quiz extends javax.swing.JFrame
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
@@ -328,7 +321,6 @@ public class G8Quiz extends javax.swing.JFrame
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnChat;
     private javax.swing.JButton BtnFAQs;
     private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnNotes;
