@@ -282,7 +282,11 @@ public class SignUp extends javax.swing.JFrame {
             writer.write(textToAdd);
             writer.close();
             JOptionPane.showMessageDialog(null,"You have successfully signed up");
+            
+            this.setVisible(false);
+            new Menu1().setVisible(true);
         } 
+        
         catch (IOException e) 
         {
             JOptionPane.showMessageDialog(null, "Please try again");

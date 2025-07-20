@@ -1,3 +1,9 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -115,7 +121,30 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSignUpActionPerformed
-        // TODO add your handling code here:
+        String filePath =  "/Users/kudamlambo/Documents/PAT IT /JFrame/TextFiles/UserDetails.txt";
+        try {
+            Scanner scFile = new Scanner(new File(filePath));
+           
+            while (scFile.hasNextLine()) {
+                Scanner scLine = new Scanner(scFile.nextLine()).useDelimiter("#");
+                scLine.next();
+                scLine.next();
+                String emailInFile = scLine.next();
+                
+                if (emailInFile.equalsIgnoreCase(email)) {
+                    JOptionPane.showMessageDialog(null, "You have already signed up using the entered email");
+                    
+                    this.setVisible(false);
+                    Login loginScreen = new Login();
+                    loginScreen.setVisible(true);
+                    
+                }
+            }
+            
+        } catch (FileNotFoundException ex) {
+            System.out.println("File Not Found!");
+        }
+
     }//GEN-LAST:event_BtnSignUpActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

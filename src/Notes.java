@@ -89,6 +89,11 @@ public class Notes extends javax.swing.JFrame {
         BtnNotes.setBackground(new java.awt.Color(0, 0, 0));
         BtnNotes.setForeground(new java.awt.Color(255, 255, 255));
         BtnNotes.setText("Notes");
+        BtnNotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnNotesActionPerformed(evt);
+            }
+        });
 
         BtnQuiz.setBackground(new java.awt.Color(0, 0, 0));
         BtnQuiz.setForeground(new java.awt.Color(255, 255, 255));
@@ -277,6 +282,10 @@ public class Notes extends javax.swing.JFrame {
     private void BtnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSettingsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnSettingsActionPerformed
+
+    private void BtnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNotesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnNotesActionPerformed
 
     /**
      * @param args the command line arguments

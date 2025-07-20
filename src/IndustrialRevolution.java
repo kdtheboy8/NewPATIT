@@ -101,26 +101,27 @@ public class IndustrialRevolution extends javax.swing.JFrame {
 
     private void BtnReadTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReadTextActionPerformed
         
+      
+
         //Reading from textFile(Industrial Revolution)
-        JFileChooser chooser = new JFileChooser ();
-        chooser.showOpenDialog (null) ;
-        File f =chooser.getSelectedFile();
-        String filename=f.getAbsolutePath () ;
+        JFileChooser chooser= new JFileChooser() ;
+        chooser.showOpenDialog (null);
+        File f =chooser.getSelectedFile ();
+        String filename=f. getAbsolutePath () ;
         
         try
-        
         {
-            FileReader reader = new FileReader (filename);
-            BufferedReader br = new BufferedReader (reader) ;
-            jTextArea1.read(br, null);
-            br.close();
+            FileReader reader = new FileReader (filename) ;
+            BufferedReader br = new BufferedReader (reader);
+            jTextArea1.read(br,null);
+            br.close () ;
             jTextArea1.requestFocus();
         }
-        
-        catch (Exception e)
+        catch(Exception e)
         {
-                JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showInputDialog("File chooser not available try again  on call support at '0723179699' ");
         }
+        
  
     }//GEN-LAST:event_BtnReadTextActionPerformed
 

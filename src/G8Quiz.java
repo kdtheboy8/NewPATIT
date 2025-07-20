@@ -1,11 +1,6 @@
 
-import java.awt.MouseInfo;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
+import javax.swing.JPanel;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -49,7 +44,7 @@ public class G8Quiz extends javax.swing.JFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BtnQuizIndusRevolution = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -150,10 +145,10 @@ public class G8Quiz extends javax.swing.JFrame
 
         jLabel1.setText("Term 1: ");
 
-        jButton1.setText("Industiral Revolution");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnQuizIndusRevolution.setText("Industiral Revolution");
+        BtnQuizIndusRevolution.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnQuizIndusRevolutionActionPerformed(evt);
             }
         });
 
@@ -183,7 +178,7 @@ public class G8Quiz extends javax.swing.JFrame
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BtnQuizIndusRevolution, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton2)))
                         .addGap(412, 543, Short.MAX_VALUE))
@@ -198,7 +193,7 @@ public class G8Quiz extends javax.swing.JFrame
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(BtnQuizIndusRevolution))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -279,9 +274,9 @@ public class G8Quiz extends javax.swing.JFrame
         
     }//GEN-LAST:event_BtnHelpMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void BtnQuizIndusRevolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuizIndusRevolutionActionPerformed
+
+    }//GEN-LAST:event_BtnQuizIndusRevolutionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,10 +320,10 @@ public class G8Quiz extends javax.swing.JFrame
     private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnNotes;
     private javax.swing.JButton BtnQuiz;
+    private javax.swing.JButton BtnQuizIndusRevolution;
     private javax.swing.JButton BtnSettings;
     private javax.swing.JLabel LBLLogo2;
     private javax.swing.JLabel LBLlogo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
