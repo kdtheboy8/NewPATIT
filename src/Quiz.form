@@ -87,7 +87,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Apple Chancery" size="48" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Notes "/>
+            <Property name="text" type="java.lang.String" value="Quiz"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="BtnHelp">

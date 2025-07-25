@@ -1,3 +1,8 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -15,7 +20,8 @@ public class UserDetails {
     private String password;
     private String role;
     private String phoneNumber;
-
+    public String filepath = "UserDetails";
+    
     // Constructor
     public UserDetails(String firstName, String lastName, String email, String password, String role, String phoneNumber) 
     {
@@ -28,13 +34,20 @@ public class UserDetails {
     }
 
     // Factory method to create a Student object from a line in the text file
-    public static UserDetails fromTextLine(String line) {
-        String[] parts = line.split("#");
-        if (parts.length >= 6) {
-            return new UserDetails(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
-        } else {
-            System.out.println("Invalid data format: " + line);
-            return null;
+    public void getDetails()
+    {
+        try
+        {
+            Scanner scFile = new Scanner(new File(filepath));
+            Scanner scLine = new Scanner(scFile.nextLine()).useDelimiter("#");
+            String fName= scLine.next();
+            String lName=scLine.next();
+            String emailInFile = scLine.next();
+            scLine.next();
+        }
+        catch(FileNotFoundException ex)
+        {
+            System.out.println("File Not Found!");
         }
     }
 

@@ -155,6 +155,11 @@ public class Notes extends javax.swing.JFrame {
         });
 
         jButton3.setText("Grade 10");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Grade 11");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +199,7 @@ public class Notes extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(32, 32, 32)
                 .addComponent(jButton3)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(30, 30, 30)
                 .addComponent(jButton5)
@@ -256,19 +261,23 @@ public class Notes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new G8Notes().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new G9Notes().setVisible(true);       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+       this.setVisible(false);
+        new G11Notes().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+       this.setVisible(false);
+        new G12Notes().setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
@@ -286,6 +295,11 @@ public class Notes extends javax.swing.JFrame {
     private void BtnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNotesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnNotesActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.setVisible(false);
+        new G10Notes().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

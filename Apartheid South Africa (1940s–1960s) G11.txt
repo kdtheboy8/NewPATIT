@@ -1,0 +1,197 @@
+==================================================================
+APARTHEID SOUTH AFRICA (1940s-1960s): MICRO-HISTORICAL RECORD
+==================================================================
+
+1. LEGISLATIVE FOUNDATIONS (1948-1953)
+
+1.1 Population Registration Act (1950)
+- Classification Methodology:
+  * Race Determination Boards established in all 300 magisterial districts
+  * Visual inspection criteria:
+    - Skin tone: 7 official gradations recorded
+    - Hair texture: 5-point curl classification system
+    - Facial features: 12 measurement points
+  * Documentary evidence required:
+    - 3 generations of family history
+    - Church baptismal records (if Christian)
+    - Tribal affiliation documents (if African)
+
+- Initial Registration Statistics (1950-1955):
+  * White population: 2,641,689 verified
+    - 0.7% reclassified downward (18,492 individuals)
+  * Coloured population: 1,409,092
+    - 28,317 appeals filed (19% successful)
+  * Indian population: 501,958
+    - 98.2% concentrated in Natal Province
+  * Black population: 8,560,083
+    - Underestimated by 1.2 million due to rural exclusion
+
+1.2 Group Areas Act (1950)
+- Implementation Timetables:
+  * Phase 1 (1950-1955): Urban areas cleared
+    - Johannesburg: 37 neighborhoods reassigned
+    - Cape Town: 22 mixed areas targeted
+  * Phase 2 (1956-1960): Small towns and rural districts
+    - 143 dorpies (small towns) rezoned
+    - 42 mission stations relocated
+
+- Sophiatown Forced Removals (1955):
+  * Demolition crew specifications:
+    - 17 bulldozers operating daily
+    - 8-ton capacity trucks: 72 in rotation
+  * Relocation logistics:
+    - Meadowlands housing: 4,372 matchbox houses built
+    - Average family allocation: 38 square meters
+    - Transport: 1,247 government buses deployed
+
+2. ECONOMIC CONTROL SYSTEMS
+
+2.1 Migrant Labor System
+- Gold Mining Operations (1960):
+  * Workforce composition:
+    - 412,743 Black miners
+    - 56,892 White supervisors
+    - 12,447 Coloured drill operators
+  * Living conditions:
+    - Compound barracks: 12 men per 24 sqm room
+    - Monthly mortality rate: 4.2 deaths per 1,000
+    - Food rations: 2,800 calories/day (78% maize)
+
+- Pass Law Enforcement (1952-1960):
+  * Arrest demographics:
+    - 63% aged 18-35
+    - 82% male
+    - 41% repeat offenders
+  * Court processing:
+    - Average hearing duration: 7 minutes
+    - Conviction rate: 94.6%
+
+2.2 Bantu Education System
+- Curriculum Development:
+  * 1954 Syllabus specifications:
+    - Arithmetic: Limited to basic bookkeeping
+    - History: 72% Boer War content
+    - Languages: 4 hours/week vernacular vs 10 hours English/Afrikaans
+  * Textbook production:
+    - 12 million copies printed 1955-1960
+    - Average cost: R0.23 per book
+
+- Infrastructure Disparities (1960):
+  * Classroom ratios:
+    - White schools: 1 classroom per 22 students
+    - Black schools: 1 classroom per 54 students
+  * Sanitation facilities:
+    - White schools: 1 toilet per 15 students
+    - Black schools: 1 toilet per 89 students
+
+3. RESISTANCE AND REPRESSION
+
+3.1 Sharpeville Massacre (March 21, 1960)
+- Police Deployment:
+  * 130 officers present
+  * Armament:
+    - 47 Sten submachine guns
+    - 83 Lee-Enfield rifles
+    - 1,200 rounds ammunition issued
+  * Command structure:
+    - 3 commissioned officers
+    - 12 NCOs
+
+- Forensic Analysis:
+  * Wound patterns:
+    - 69% of fatalities from shots to back
+    - 23% from shots to legs
+    - 8% head wounds
+  * Ballistics evidence:
+    - Average firing distance: 28 meters
+    - Empty casings recovered: 743
+
+3.2 Rivonia Trial (1963-1964)
+- Evidence Catalog:
+  * Document seizures:
+    - 210 pages meeting minutes
+    - 57 maps of strategic locations
+    - 12 draft constitutions
+  * Physical evidence:
+    - 47 homemade weapons
+    - 3 radio transmitters
+    - 17 disguise kits
+
+- Prison Conditions:
+  * Robben Island specifications:
+    - Cell block dimensions: 30m x 8m
+    - Daily routine:
+      - 5:30 AM wake-up
+      - 14 hours hard labor
+      - 600g bread daily ration
+
+4. INTERNATIONAL RELATIONS
+
+4.1 Early Sanctions (1960-1964)
+- Arms Embargo Effects:
+  * Military procurement:
+    - 1961: 87% of arms imported
+    - 1964: 42% imported (58% local production)
+  * Strategic stockpiles:
+    - Small arms ammunition: 47 million rounds
+    - Artillery shells: 120,000 units
+
+4.2 Diplomatic Isolation
+- UN Voting Patterns:
+  * 1962 Resolution 1761:
+    - 67 votes in favor
+    - 16 against
+    - 23 abstentions
+  * Expulsions:
+    - 14 international organizations
+    - 3 UN specialized agencies
+
+5. DEMOGRAPHIC ENGINEERING
+
+5.1 Bantustan Creation
+- Territorial Allocations:
+  * Transkei: 45,000 sq km (3.5 million people)
+  * Bophuthatswana: 40,000 sq km (1.8 million)
+  * Infrastructure:
+    - 1 hospital per 400,000
+    - 1 secondary school per 150,000
+
+5.2 Urban Influx Control
+- Johannesburg System (1965):
+  * Passbook checks:
+    - 147 daily roadblocks
+    - 3,000 police assigned
+  * Night raids:
+    - Average arrests per raid: 87
+    - Processing time: 4.7 hours per detainee
+
+==================================================================
+STATISTICAL APPENDICES
+
+A. Population Distribution (1960)
+- White: 3,088,492 (18.4%)
+- Black: 10,928,000 (65.3%)
+- Coloured: 1,600,000 (9.5%)
+- Indian: 550,000 (3.3%)
+- Other: 540,000 (3.5%)
+
+B. Economic Disparities
+- Average Annual Income:
+  * White: R2,530
+  * Indian: R880
+  * Coloured: R470
+  * Black: R170
+
+C. Education Investment (1965)
+- Per Capita Spending:
+  * White: R144
+  * Indian: R43
+  * Coloured: R28
+  * Black: R12
+
+PRIMARY SOURCES:
+- South African National Archives (Pretoria)
+- Bantu Administration Board Records
+- Security Police Files (declassified 1996)
+- UN Special Committee on Apartheid Reports
+- South African Institute of Race Relations Surveys

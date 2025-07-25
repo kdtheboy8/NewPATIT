@@ -19,12 +19,15 @@ import javax.swing.JOptionPane;
  * @author 25kudakwashem
  */
 public class SignUp extends javax.swing.JFrame {
-
+    private final Login role;
     /**
      * Creates new form SignUp
      */
     public SignUp() {
         initComponents();
+        role = new Login();
+        
+        
     }
 
     /**
@@ -202,7 +205,7 @@ public class SignUp extends javax.swing.JFrame {
         String cellNo = txfCellNo.getText();
         
         //email search
-        String filePath =  "/Users/kudamlambo/Documents/PAT IT /JFrame/TextFiles/UserDetails.txt";
+        String filePath =  "UserDetails.txt";
         try {
             Scanner scFile = new Scanner(new File(filePath));
            
@@ -214,11 +217,10 @@ public class SignUp extends javax.swing.JFrame {
                 
                 if (emailInFile.equalsIgnoreCase(email)) {
                     JOptionPane.showMessageDialog(null, "You have already signed up using the entered email");
-                    
                     this.setVisible(false);
                     Login loginScreen = new Login();
                     loginScreen.setVisible(true);
-                    
+                    return; // Stop further execution if email is found
                 }
             }
             
@@ -266,23 +268,22 @@ public class SignUp extends javax.swing.JFrame {
         {
             LBLCellNoStatus.setText("Number must be 10 digits"); 
             txfCellNo.setBackground(Color.red);
-        }
         
-        String textToAdd =fName+"#"+sName+"#"+email+"#"+pass+"#"+role+"#"+cellNo;
+        
+        String textToAdd =fName+"#"+sName+"#"+email+"#"+pass+"#"+role+"#"+cellNo+"\n";
         
         String wordToCheck = "war"; // 🔍 Word to search for (case-insensitive)
         int wordCount = 0;
-
-        
             
         try 
         {
-            // true means append to file, false would overwrite
+            //write user's details into text file
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
             writer.write(textToAdd);
             writer.close();
             JOptionPane.showMessageDialog(null,"You have successfully signed up");
             
+            //Add new information to textfile
             this.setVisible(false);
             new Menu1().setVisible(true);
         } 
@@ -294,12 +295,12 @@ public class SignUp extends javax.swing.JFrame {
         }
             
         
-       
+       }
     }//GEN-LAST:event_BtnSignUpActionPerformed
 
     private void BtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBackActionPerformed
         this.setVisible(false);
-        new HistoryED().setVisible(true);
+        new HistoryED().setVisible(true);        
     }//GEN-LAST:event_BtnBackActionPerformed
 
     private void txfSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfSurnameActionPerformed
@@ -308,6 +309,7 @@ public class SignUp extends javax.swing.JFrame {
 
     private void CMBRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMBRoleActionPerformed
         // TODO add your handling code here:
+     
     }//GEN-LAST:event_CMBRoleActionPerformed
 
     private void txfCellNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfCellNoActionPerformed

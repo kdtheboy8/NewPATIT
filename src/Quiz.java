@@ -53,7 +53,7 @@ public class Quiz extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 153, 51));
 
         LBLlogo.setFont(new java.awt.Font("Apple Chancery", 3, 48)); // NOI18N
-        LBLlogo.setText("Notes ");
+        LBLlogo.setText("Quiz");
 
         BtnHelp.setBackground(new java.awt.Color(255, 153, 51));
         BtnHelp.setText("?");
@@ -258,7 +258,8 @@ public class Quiz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new G8Quiz().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

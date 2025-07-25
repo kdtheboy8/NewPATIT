@@ -275,7 +275,8 @@ public class G8Quiz extends javax.swing.JFrame
     }//GEN-LAST:event_BtnHelpMouseClicked
 
     private void BtnQuizIndusRevolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuizIndusRevolutionActionPerformed
-
+        this.setVisible(false);
+        new QuizDisplay("8", BtnQuizIndusRevolution.getText()).setVisible(true);
     }//GEN-LAST:event_BtnQuizIndusRevolutionActionPerformed
 
     /**
@@ -309,7 +310,7 @@ public class G8Quiz extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Notes().setVisible(true);
+                new G8Quiz().setVisible(true);
             }
         });
     }

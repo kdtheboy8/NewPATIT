@@ -231,7 +231,7 @@ public class Menu1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Notes().setVisible(true);
+                new Menu1().setVisible(true);
             }
         });
     }

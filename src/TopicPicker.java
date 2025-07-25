@@ -4,27 +4,29 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
-
-
-
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author kudamlambo
  */
-public class TopicPicker extends javax.swing.JFrame {
-
+public class TopicPicker extends javax.swing.JFrame
+{
+     UserDetails userDetails ;
     /**
      * Creates new form IndustrialRevolution
      */
-    public TopicPicker() {
+    public TopicPicker() 
+    {
+        
         initComponents();
+        
+        
     }
 
     /**
@@ -39,10 +41,11 @@ public class TopicPicker extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        BtnExit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         BtnRead = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BtnSaveEdit = new javax.swing.JButton();
+        BtnModify = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,7 +56,7 @@ public class TopicPicker extends javax.swing.JFrame {
         jTextArea.setText("\n");
         jScrollPane1.setViewportView(jTextArea);
 
-        jButton1.setText("Exit");
+        BtnExit.setText("Exit");
 
         jLabel1.setText("Industrial Revolution ");
 
@@ -64,10 +67,17 @@ public class TopicPicker extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BtnSaveEdit.setText("Save");
+        BtnSaveEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtnSaveEditActionPerformed(evt);
+            }
+        });
+
+        BtnModify.setText("Modify");
+        BtnModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModifyActionPerformed(evt);
             }
         });
 
@@ -76,28 +86,30 @@ public class TopicPicker extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButton1)
-                .addGap(89, 89, 89)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(BtnExit)
+                        .addGap(89, 89, 89)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(61, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(BtnRead)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtnSaveEdit)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtnModify)))))
                 .addContainerGap(62, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnRead)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(BtnExit)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)))
@@ -106,7 +118,8 @@ public class TopicPicker extends javax.swing.JFrame {
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnRead)
-                    .addComponent(jButton2))
+                    .addComponent(BtnSaveEdit)
+                    .addComponent(BtnModify))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -125,81 +138,78 @@ public class TopicPicker extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReadActionPerformed
-
-        //Reading from textFile(Industrial Revolution)
-        //JFileChooser chooser= new JFileChooser() ;
-        //chooser.showOpenDialog (null);
-        //File f =chooser.getSelectedFile ();
-        //String filename=f. getAbsolutePath () ;
         
-        if()
-        {
-            try
-            {
-                FileReader reader = new FileReader ("/Users/kudamlambo/Documents/PAT IT /JFrame/TextFiles/Industiral Revolution G8.txt");
-                BufferedReader br = new BufferedReader (reader);
-                jTextArea.read(br,null);
-                br.close () ;
-                jTextArea.requestFocus(); 
-            }
-            catch(Exception e)
-            {
-                JOptionPane.showInputDialog("File chooser not available try again  on call support at '0723179699' ");
-            }
-        }
-        else//Student will not be able to edit the class 
-        {
-            try
-            {
-                FileReader reader = new FileReader ("/Users/kudamlambo/Documents/PAT IT /JFrame/TextFiles/Industiral Revolution G8.txt");
-                BufferedReader br = new BufferedReader (reader);
-                jTextArea.setEditable(false);
-                jTextArea.read(br,null);
-                br.close ();
-                jTextArea.requestFocus(); 
-            }
-            catch(Exception e)
-            {
-                JOptionPane.showInputDialog("File chooser not available try again  on call support at '0723179699' ");
-            }
-        }
-        try
-        {
-            FileReader reader = new FileReader ("/Users/kudamlambo/Documents/PAT IT /JFrame/TextFiles/Industiral Revolution G8.txt");
-            BufferedReader br = new BufferedReader (reader);
-            jTextArea.read(br,null);
-            br.close () ;
-            jTextArea.requestFocus(); 
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showInputDialog("File chooser not available try again  on call support at '0723179699' ");
-        }
+        // Clear previous content from the text area
+        jTextArea.setText(""); 
         
- 
-     
+        // The name of the file to read
+        String fileName = "Industiral Revolution G8.txt";
+        
+        // Try to read from the current directory first
+        java.io.File file = new java.io.File(fileName);
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) 
+        {
+            // Use StringBuilder to efficiently build the file content
+            StringBuilder sb = new StringBuilder();
+            String line;
+            
+            // Read each line from the file and append it to the StringBuilder
+            while ((line = br.readLine()) != null)
+            {
+                sb.append(line).append("\n");
+            }
+            
+            // Display the file content in the text area
+            jTextArea.setText(sb.toString());
+            
+            // Allow editing only if the user is a teacher
+            jTextArea.setEditable(userDetails != null && "Teacher".equals(userDetails.getRole()));
+        } 
+        catch (Exception e) 
+        {  
+            // Show an error dialog if the file could not be read
+            JOptionPane.showMessageDialog(this, "Could not read file: " + fileName + "\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BtnReadActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
-        //Save changes to text file 
-                
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("/Users/kudamlambo/Documents/PAT IT /JFrame/TextFiles/Industiral Revolution G8.txt"))) 
+    private void BtnSaveEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveEditActionPerformed
+        
+        // Only allow teachers to save edits
+        if (userDetails != null && "Teacher".equals(userDetails.getRole())) 
         {
-            bw.write(jTextArea.getText());
-            JOptionPane.showMessageDialog(this, "File saved successfully.");
-        } catch (IOException e) 
+            String fileName = "Industiral Revolution G8.txt";
+            String content = jTextArea.getText();
+            java.io.File file = new java.io.File(fileName);
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file)))
+            {
+                bw.write(content);
+                JOptionPane.showMessageDialog(this, "File saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } 
+            catch (Exception e) 
+            {
+                JOptionPane.showMessageDialog(this, "Could not save file: " + fileName + "\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } 
+        else 
         {
-            JOptionPane.showInputDialog("Failed to save file.");
+            //Stop the student from editing text file
+            JOptionPane.showMessageDialog(this, "Only teachers can save edits.", "Access Denied", JOptionPane.WARNING_MESSAGE);
         }
-    
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BtnSaveEditActionPerformed
+
+    private void BtnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifyActionPerformed
+        
+         if (userDetails != null && "Teacher".equals(userDetails.getRole())) 
+         {
+             jTextArea.setEditable(true);
+         }
+    }//GEN-LAST:event_BtnModifyActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) 
-        {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -213,30 +223,30 @@ public class TopicPicker extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IndustrialRevolution.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TopicPicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IndustrialRevolution.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TopicPicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IndustrialRevolution.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TopicPicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IndustrialRevolution.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TopicPicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IndustrialRevolution().setVisible(true);
+                new TopicPicker().setVisible(true);
             }
         });
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnExit;
+    private javax.swing.JButton BtnModify;
     private javax.swing.JButton BtnRead;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton BtnSaveEdit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

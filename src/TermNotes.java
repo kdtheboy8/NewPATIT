@@ -42,19 +42,19 @@ public class TermNotes extends javax.swing.JFrame
         BtnNotes = new javax.swing.JButton();
         BtnQuiz = new javax.swing.JButton();
         BtnFAQs = new javax.swing.JButton();
-        BtnSettings = new javax.swing.JButton();
+        BtnLogOut = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         LBLLogo2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel5 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        LBLTerm1 = new javax.swing.JLabel();
+        BtnTopic1 = new javax.swing.JButton();
+        BtnTopic2 = new javax.swing.JButton();
+        LBLTerm2 = new javax.swing.JLabel();
+        BtnTopic3 = new javax.swing.JButton();
+        LBLTerm3 = new javax.swing.JLabel();
+        BtnTopic4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,9 +118,9 @@ public class TermNotes extends javax.swing.JFrame
         BtnFAQs.setForeground(new java.awt.Color(255, 255, 255));
         BtnFAQs.setText("FAQs");
 
-        BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
-        BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSettings.setText("Settings ");
+        BtnLogOut.setBackground(new java.awt.Color(0, 0, 0));
+        BtnLogOut.setForeground(new java.awt.Color(255, 255, 255));
+        BtnLogOut.setText("Settings ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -129,7 +129,7 @@ public class TermNotes extends javax.swing.JFrame
             .addComponent(BtnNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
             .addComponent(BtnFAQs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +141,7 @@ public class TermNotes extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnFAQs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -153,24 +153,29 @@ public class TermNotes extends javax.swing.JFrame
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jLabel1.setText("Term 1: ");
+        LBLTerm1.setText("Term 1: ");
 
-        jButton1.setText("Industiral Revolution");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnTopic1.setText("Industiral Revolution");
+        BtnTopic1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnTopic1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText(" Mineral Revolution of South Africa ");
+        BtnTopic2.setText(" Mineral Revolution of South Africa ");
+        BtnTopic2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTopic2ActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setText("Term 2:");
+        LBLTerm2.setText("Term 2:");
 
-        jButton3.setText("Scramble for Africa");
+        BtnTopic3.setText("Scramble for Africa");
 
-        jLabel4.setText("Term 3: ");
+        LBLTerm3.setText("Term 3: ");
 
-        jButton4.setText("World War I");
+        BtnTopic4.setText("World War I");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -179,21 +184,21 @@ public class TermNotes extends javax.swing.JFrame
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap(118, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(LBLTerm3)
+                    .addComponent(LBLTerm1)
+                    .addComponent(LBLTerm2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnTopic4, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BtnTopic1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2)))
+                                .addComponent(BtnTopic2)))
                         .addGap(412, 543, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(BtnTopic3)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel5Layout.setVerticalGroup(
@@ -201,17 +206,17 @@ public class TermNotes extends javax.swing.JFrame
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap(46, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(LBLTerm1)
+                    .addComponent(BtnTopic2)
+                    .addComponent(BtnTopic1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton3))
+                    .addComponent(LBLTerm2)
+                    .addComponent(BtnTopic3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jButton4))
+                    .addComponent(LBLTerm3)
+                    .addComponent(BtnTopic4))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
@@ -284,14 +289,18 @@ public class TermNotes extends javax.swing.JFrame
         
     }//GEN-LAST:event_BtnHelpMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnTopic1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic1ActionPerformed
         this.setVisible(false);
-        new IndustrialRevolution().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        new TopicPicker().setVisible(true);
+    }//GEN-LAST:event_BtnTopic1ActionPerformed
 
     private void BtnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNotesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnNotesActionPerformed
+
+    private void BtnTopic2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnTopic2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -324,7 +333,7 @@ public class TermNotes extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Notes().setVisible(true);
+                new TermNotes().setVisible(true);
             }
         });
     }
@@ -333,18 +342,18 @@ public class TermNotes extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnFAQs;
     private javax.swing.JButton BtnHelp;
+    private javax.swing.JButton BtnLogOut;
     private javax.swing.JButton BtnNotes;
     private javax.swing.JButton BtnQuiz;
-    private javax.swing.JButton BtnSettings;
+    private javax.swing.JButton BtnTopic1;
+    private javax.swing.JButton BtnTopic2;
+    private javax.swing.JButton BtnTopic3;
+    private javax.swing.JButton BtnTopic4;
     private javax.swing.JLabel LBLLogo2;
+    private javax.swing.JLabel LBLTerm1;
+    private javax.swing.JLabel LBLTerm2;
+    private javax.swing.JLabel LBLTerm3;
     private javax.swing.JLabel LBLlogo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

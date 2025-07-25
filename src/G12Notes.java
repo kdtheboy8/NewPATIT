@@ -175,6 +175,11 @@ public class G12Notes extends javax.swing.JFrame
         jLabel2.setText("Term 2:");
 
         jButton3.setText("Civil Resistance in South Africa ");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -277,7 +282,8 @@ public class G12Notes extends javax.swing.JFrame
     }//GEN-LAST:event_BtnHelpMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new CivilProtestsNotesG12().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuizActionPerformed
@@ -287,6 +293,11 @@ public class G12Notes extends javax.swing.JFrame
     private void BtnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNotesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnNotesActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.setVisible(false);
+        new CivilResistanceNotesG12().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
