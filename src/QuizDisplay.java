@@ -14,7 +14,14 @@ import javax.swing.JOptionPane;
  */
 public class QuizDisplay extends javax.swing.JFrame 
 {
-    int currentQuestion = 1;
+    private int currentQuestion = 1;
+    private int totalQuestions = 0;
+    private String currentGrade;
+    private String selectedQuiz;
+    private QuizInterfaceClass qic;
+    private ArrayList<String> userAnswers = new ArrayList<>();
+    private ArrayList<String> correctAnswers = new ArrayList<>();
+    private int score = 0;
 
     /**
      * Creates new form Menu
@@ -23,15 +30,134 @@ public class QuizDisplay extends javax.swing.JFrame
      */
     
     public QuizDisplay(String grade, String selectedQuiz) {
-        String currentGrade = grade;
+        this.currentGrade = grade;
+        this.selectedQuiz = selectedQuiz;
         
         initComponents();
         lblGrade.setText("Grade: " + currentGrade);
         
-        QuizInterfaceClass qic = new QuizInterfaceClass(grade, selectedQuiz);
-        int numberOfQuestions = qic.numberOfQuestions();
-        lblQuestion.setText(qic.qetQuestion(currentQuestion) + "\n" + qic.getAnswers(currentQuestion));
-        LBLOption1.setText();
+        // Initialize quiz interface
+        qic = new QuizInterfaceClass(grade, "TextFiles/" + selectedQuiz + "Quiz");
+        qic.addToArray();
+        totalQuestions = qic.numberOfQuestions();
+        
+        // Initialize user answers array
+        for (int i = 0; i < totalQuestions; i++) {
+            userAnswers.add("");
+        }
+        
+        // Load first question
+        loadQuestion(currentQuestion);
+        updateNavigationButtons();
+    }
+
+    /**
+     * Loads a specific question and displays it
+     */
+    private void loadQuestion(int questionNumber) {
+        if (questionNumber >= 1 && questionNumber <= totalQuestions) {
+            currentQuestion = questionNumber;
+            
+            // Get question and answers
+            String questionData = qic.qetQuestion(questionNumber);
+            String[] parts = questionData.split("#");
+            
+            if (parts.length >= 6) {
+                // Display question with progress
+                lblQuestion.setText("Question " + questionNumber + " of " + totalQuestions + ": " + parts[0]);
+                
+                // Display answer options
+                LBLOption1.setText("A - " + parts[1]);
+                LBLOption2.setText("B - " + parts[2]);
+                LBLOption3.setText("C - " + parts[3]);
+                LBLOption4.setText("D - " + parts[4]);
+                
+                // Store correct answer
+                if (correctAnswers.size() < questionNumber) {
+                    correctAnswers.add(parts[5]); // Correct answer is at index 5
+                }
+                
+                // Set previously selected answer if exists
+                if (!userAnswers.get(questionNumber - 1).isEmpty()) {
+                    cbAnswer.setSelectedItem(userAnswers.get(questionNumber - 1));
+                } else {
+                    cbAnswer.setSelectedIndex(0);
+                }
+            }
+        }
+    }
+    
+    /**
+     * Updates navigation buttons based on current question
+     */
+    private void updateNavigationButtons() {
+        btnBack.setEnabled(currentQuestion > 1);
+        if (currentQuestion == totalQuestions) {
+            btnNext.setText("Finish Quiz");
+        } else {
+            btnNext.setText("Next");
+        }
+        
+        // Update button colors to show answered questions
+        updateAnswerStatus();
+    }
+    
+    /**
+     * Updates the visual status of answered questions
+     */
+    private void updateAnswerStatus() {
+        // Count answered questions
+        int answeredCount = 0;
+        for (String answer : userAnswers) {
+            if (!answer.isEmpty()) {
+                answeredCount++;
+            }
+        }
+        
+        // Update the grade label to show progress
+        lblGrade.setText("Grade: " + currentGrade + " - Progress: " + answeredCount + "/" + totalQuestions + " answered");
+    }
+    
+    /**
+     * Saves the current answer
+     */
+    private void saveCurrentAnswer() {
+        String selectedAnswer = (String) cbAnswer.getSelectedItem();
+        userAnswers.set(currentQuestion - 1, selectedAnswer);
+    }
+    
+    /**
+     * Calculates and displays the final score
+     */
+    private void calculateScore() {
+        score = 0;
+        for (int i = 0; i < totalQuestions; i++) {
+            if (i < correctAnswers.size() && i < userAnswers.size()) {
+                if (userAnswers.get(i).equals(correctAnswers.get(i))) {
+                    score++;
+                }
+            }
+        }
+        
+        double percentage = (double) score / totalQuestions * 100;
+        String resultMessage = "Quiz Complete!\n\n";
+        resultMessage += "Your Score: " + score + "/" + totalQuestions + "\n";
+        resultMessage += "Percentage: " + String.format("%.1f", percentage) + "%\n\n";
+        
+        if (percentage >= 80) {
+            resultMessage += "Excellent! Well done!";
+        } else if (percentage >= 60) {
+            resultMessage += "Good job! Keep studying!";
+        } else if (percentage >= 40) {
+            resultMessage += "You need more practice. Review the material!";
+        } else {
+            resultMessage += "Please review the material thoroughly!";
+        }
+        
+        JOptionPane.showMessageDialog(this, resultMessage, "Quiz Results", JOptionPane.INFORMATION_MESSAGE);
+        
+        // Close the quiz window
+        this.dispose();
     }
 
     /**
@@ -269,7 +395,7 @@ public class QuizDisplay extends javax.swing.JFrame
                 .addGap(26, 26, 26)
                 .addComponent(lblGrade)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -278,7 +404,7 @@ public class QuizDisplay extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -287,7 +413,7 @@ public class QuizDisplay extends javax.swing.JFrame
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -298,10 +424,15 @@ public class QuizDisplay extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
-        String notes = "This is the notes screen. This is where you can select a topic you want to read. ";
-        notes += "In order to do so, first select a grade, after selecting a grade then after click on the topic ";
-        notes += "you would like to do ";
-        JOptionPane.showMessageDialog(null, notes , "Help - Notes Screen" , JOptionPane.INFORMATION_MESSAGE);
+        String helpText = "Quiz Help:\n\n";
+        helpText += "1. Read each question carefully\n";
+        helpText += "2. Select your answer from the dropdown menu\n";
+        helpText += "3. Use 'Back' to review previous questions\n";
+        helpText += "4. Use 'Next' to proceed to the next question\n";
+        helpText += "5. Click 'Finish Quiz' on the last question to submit\n";
+        helpText += "6. You can change your answers before finishing\n\n";
+        helpText += "Good luck!";
+        JOptionPane.showMessageDialog(this, helpText, "Quiz Help", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_BtnHelpActionPerformed
 
     private void BtnHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHelpMouseClicked
@@ -309,16 +440,40 @@ public class QuizDisplay extends javax.swing.JFrame
     }//GEN-LAST:event_BtnHelpMouseClicked
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        // Save current answer before going back
+        saveCurrentAnswer();
+        
+        // Go to previous question
+        if (currentQuestion > 1) {
+            loadQuestion(currentQuestion - 1);
+            updateNavigationButtons();
+        }
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        // Save current answer
+        saveCurrentAnswer();
         
-        
+        if (currentQuestion == totalQuestions) {
+            // Ask for confirmation before finishing
+            int choice = JOptionPane.showConfirmDialog(this, 
+                "Are you sure you want to finish the quiz?\nYou cannot change your answers after submitting.", 
+                "Finish Quiz", 
+                JOptionPane.YES_NO_OPTION);
+            
+            if (choice == JOptionPane.YES_OPTION) {
+                calculateScore();
+            }
+        } else {
+            // Go to next question
+            loadQuestion(currentQuestion + 1);
+            updateNavigationButtons();
+        }
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void cbAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAnswerActionPerformed
-        // TODO add your handling code here:
+        // Save answer when user changes selection
+        saveCurrentAnswer();
     }//GEN-LAST:event_cbAnswerActionPerformed
 
     /**
@@ -352,7 +507,7 @@ public class QuizDisplay extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Notes().setVisible(true);
+                new QuizDisplay("G8", "G8").setVisible(true);
             }
         });
     }

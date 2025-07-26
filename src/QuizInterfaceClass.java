@@ -30,14 +30,15 @@ public class QuizInterfaceClass {
             Scanner scFile = new Scanner(new File(currentQuiz + ".txt"));
 
             while (scFile.hasNextLine()) {
-                Scanner scLine = new Scanner(scFile.nextLine()).useDelimiter("#");
-                count++;
-                scFile.nextLine();
+                String line = scFile.nextLine();
+                if (!line.trim().isEmpty()) {
+                    count++;
+                }
             }
             scFile.close();
 
         } catch (FileNotFoundException ex) {
-            System.out.println("File Not Found!");
+            System.out.println("File Not Found: " + currentQuiz + ".txt");
         }
         return count;
     }
@@ -47,26 +48,46 @@ public class QuizInterfaceClass {
             Scanner scFile = new Scanner(new File(currentQuiz + ".txt"));
 
             while (scFile.hasNextLine()) {
-                quiz.add(scFile.nextLine());
+                String line = scFile.nextLine();
+                if (!line.trim().isEmpty()) {
+                    quiz.add(line);
+                }
             }
             scFile.close();
 
         } catch (FileNotFoundException ex) {
-            System.out.println("File Not Found!");
+            System.out.println("File Not Found: " + currentQuiz + ".txt");
         }
     }
     
     public String qetQuestion(int questionNumber) {
-        return quiz.get(questionNumber-1);
+        if (questionNumber > 0 && questionNumber <= quiz.size()) {
+            return quiz.get(questionNumber - 1);
+        }
+        return "Question not found";
     }
     
-    public String getAnswers(int questionNumber) {
-        Scanner scLine = new Scanner(quiz.get(questionNumber-1)).useDelimiter("#");
-        String output = "";
-        while (scLine.hasNext()) {
-            output += scLine.next() + ", ";
+    public String getAnswers(int questionNumber) 
+    {
+        if (questionNumber > 0 && questionNumber <= quiz.size()) {
+            Scanner scLine = new Scanner(quiz.get(questionNumber - 1)).useDelimiter("#");
+            String output = "";
+            while (scLine.hasNext()) {
+                output += scLine.next() + ", ";
+            }
+            return output;
         }
-        return output;
+        return "Answers not found";
+    }
+    
+    public String getCorrectAnswer(int questionNumber) {
+        if (questionNumber > 0 && questionNumber <= quiz.size()) {
+            String[] parts = quiz.get(questionNumber - 1).split("#");
+            if (parts.length >= 6) {
+                return parts[5]; // Assuming correct answer is at index 5
+            }
+        }
+        return "";
     }
     
 }
