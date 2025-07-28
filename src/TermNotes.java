@@ -120,7 +120,12 @@ public class TermNotes extends javax.swing.JFrame
 
         BtnLogOut.setBackground(new java.awt.Color(0, 0, 0));
         BtnLogOut.setForeground(new java.awt.Color(255, 255, 255));
-        BtnLogOut.setText("Settings ");
+        BtnLogOut.setText("Log Out");
+        BtnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLogOutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -299,8 +304,12 @@ public class TermNotes extends javax.swing.JFrame
     }//GEN-LAST:event_BtnNotesActionPerformed
 
     private void BtnTopic2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic2ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_BtnTopic2ActionPerformed
+
+    private void BtnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnLogOutActionPerformed
 
     /**
      * @param args the command line arguments

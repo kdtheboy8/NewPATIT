@@ -104,6 +104,11 @@ public class G8Notes extends javax.swing.JFrame
         BtnNotes.setBackground(new java.awt.Color(0, 0, 0));
         BtnNotes.setForeground(new java.awt.Color(255, 255, 255));
         BtnNotes.setText("Notes");
+        BtnNotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnNotesActionPerformed(evt);
+            }
+        });
 
         BtnQuiz.setBackground(new java.awt.Color(0, 0, 0));
         BtnQuiz.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,10 +117,20 @@ public class G8Notes extends javax.swing.JFrame
         BtnFAQs.setBackground(new java.awt.Color(0, 0, 0));
         BtnFAQs.setForeground(new java.awt.Color(255, 255, 255));
         BtnFAQs.setText("FAQs");
+        BtnFAQs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnFAQsActionPerformed(evt);
+            }
+        });
 
         BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
         BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
         BtnSettings.setText("Log Out");
+        BtnSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSettingsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -314,6 +329,19 @@ public class G8Notes extends javax.swing.JFrame
         this.setVisible(false);
         new WorldWar1NotesG8().setVisible(true);
     }//GEN-LAST:event_BtnTopic4ActionPerformed
+
+    private void BtnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNotesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnNotesActionPerformed
+
+    private void BtnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSettingsActionPerformed
+        this.setVisible(false);
+        new HistoryED().setVisible(true);
+    }//GEN-LAST:event_BtnSettingsActionPerformed
+
+    private void BtnFAQsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFAQsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnFAQsActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,6 +1,5 @@
 
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -45,11 +44,11 @@ public class G8Quiz extends javax.swing.JFrame
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BtnQuizIndusRevolution = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BtnMineralRev = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        BtnScramble = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        BtnWW1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -152,15 +151,30 @@ public class G8Quiz extends javax.swing.JFrame
             }
         });
 
-        jButton2.setText(" Mineral Revolution of South Africa ");
+        BtnMineralRev.setText(" Mineral Revolution of South Africa ");
+        BtnMineralRev.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMineralRevActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Term 2:");
 
-        jButton3.setText("Scramble for Africa");
+        BtnScramble.setText("Scramble for Africa");
+        BtnScramble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnScrambleActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Term 3: ");
 
-        jButton4.setText("World War I");
+        BtnWW1.setText("World War I");
+        BtnWW1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnWW1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -176,14 +190,14 @@ public class G8Quiz extends javax.swing.JFrame
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnWW1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(BtnQuizIndusRevolution, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2)))
+                                .addComponent(BtnMineralRev)))
                         .addGap(412, 543, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(BtnScramble)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel5Layout.setVerticalGroup(
@@ -192,16 +206,16 @@ public class G8Quiz extends javax.swing.JFrame
                 .addContainerGap(46, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton2)
+                    .addComponent(BtnMineralRev)
                     .addComponent(BtnQuizIndusRevolution))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton3))
+                    .addComponent(BtnScramble))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jButton4))
+                    .addComponent(BtnWW1))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
@@ -279,6 +293,21 @@ public class G8Quiz extends javax.swing.JFrame
         new QuizDisplay("8", BtnQuizIndusRevolution.getText()).setVisible(true);
     }//GEN-LAST:event_BtnQuizIndusRevolutionActionPerformed
 
+    private void BtnScrambleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnScrambleActionPerformed
+        this.setVisible(false);
+        new QuizDisplay("8", BtnScramble.getText()).setVisible(true);
+    }//GEN-LAST:event_BtnScrambleActionPerformed
+
+    private void BtnWW1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnWW1ActionPerformed
+        this.setVisible(false);
+        new QuizDisplay("8", BtnWW1.getText()).setVisible(true);
+    }//GEN-LAST:event_BtnWW1ActionPerformed
+
+    private void BtnMineralRevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMineralRevActionPerformed
+        this.setVisible(false);
+        new QuizDisplay("8", BtnMineralRev.getText()).setVisible(true);
+    }//GEN-LAST:event_BtnMineralRevActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -319,15 +348,15 @@ public class G8Quiz extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnFAQs;
     private javax.swing.JButton BtnHelp;
+    private javax.swing.JButton BtnMineralRev;
     private javax.swing.JButton BtnNotes;
     private javax.swing.JButton BtnQuiz;
     private javax.swing.JButton BtnQuizIndusRevolution;
+    private javax.swing.JButton BtnScramble;
     private javax.swing.JButton BtnSettings;
+    private javax.swing.JButton BtnWW1;
     private javax.swing.JLabel LBLLogo2;
     private javax.swing.JLabel LBLlogo;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

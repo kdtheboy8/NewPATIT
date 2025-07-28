@@ -118,7 +118,7 @@
               <Component id="BtnNotes" alignment="0" max="32767" attributes="0"/>
               <Component id="BtnQuiz" pref="100" max="32767" attributes="0"/>
               <Component id="BtnFAQs" alignment="0" max="32767" attributes="0"/>
-              <Component id="BtnSettings" alignment="0" max="32767" attributes="0"/>
+              <Component id="BtnLogOut" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -133,7 +133,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="BtnFAQs" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="BtnSettings" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="BtnLogOut" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -190,7 +190,7 @@
             <Property name="text" type="java.lang.String" value="FAQs"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="BtnSettings">
+        <Component class="javax.swing.JButton" name="BtnLogOut">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>

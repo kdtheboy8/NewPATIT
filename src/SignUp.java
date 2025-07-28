@@ -300,7 +300,7 @@ public class SignUp extends javax.swing.JFrame {
 
     private void BtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBackActionPerformed
         this.setVisible(false);
-        new HistoryED().setVisible(true);        
+        new HistoryED().setVisible(true);
     }//GEN-LAST:event_BtnBackActionPerformed
 
     private void txfSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfSurnameActionPerformed

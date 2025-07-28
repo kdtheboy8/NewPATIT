@@ -1,0 +1,5 @@
+student1@example.com#G8-Industrial Revolution-8/10#G8-Mineral Revolution-7/10#G9-Cold War-9/10
+student2@example.com#G8-Industrial Revolution-6/10#G8-World War I-8/10#G10-Colonial Expansion-7/10
+student3@example.com#G9-World War II-9/10#G11-Apartheid-8/10#G12-Civil Resistance-6/10
+teacher@example.com#G8-Industrial Revolution-10/10#G9-Cold War-9/10#G10-French Revolution-8/10
+test@example.com#G8-Mineral Revolution-5/10#G9-Turning Points-7/10#G11-Capitalism-6/10 

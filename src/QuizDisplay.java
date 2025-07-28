@@ -1,7 +1,5 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -22,6 +20,7 @@ public class QuizDisplay extends javax.swing.JFrame
     private ArrayList<String> userAnswers = new ArrayList<>();
     private ArrayList<String> correctAnswers = new ArrayList<>();
     private int score = 0;
+    private String userEmail = "";
 
     /**
      * Creates new form Menu
@@ -36,8 +35,11 @@ public class QuizDisplay extends javax.swing.JFrame
         initComponents();
         lblGrade.setText("Grade: " + currentGrade);
         
-        // Initialize quiz interface
-        qic = new QuizInterfaceClass(grade, "TextFiles/" + selectedQuiz + "Quiz");
+        // Prompt for user email
+        promptForEmail();
+        
+        // Initialize quiz interface with QuizQuestions directory
+        qic = new QuizInterfaceClass(grade, "TextFiles/QuizQuestions/" + selectedQuiz);
         qic.addToArray();
         totalQuestions = qic.numberOfQuestions();
         
@@ -127,6 +129,70 @@ public class QuizDisplay extends javax.swing.JFrame
     }
     
     /**
+     * Prompt user for their email address
+     */
+    private void promptForEmail() {
+        userEmail = JOptionPane.showInputDialog(this, 
+            "Please enter your email address:", 
+            "Student Email", 
+            JOptionPane.QUESTION_MESSAGE);
+        
+        if (userEmail == null || userEmail.trim().isEmpty()) {
+            userEmail = "anonymous@example.com";
+        }
+    }
+    
+    /**
+     * Write quiz result to QuizResults.txt file
+     */
+    private void writeResultToFile() {
+        try {
+            File file = new File("TextFiles/QuizResults.txt");
+            ArrayList<String> lines = new ArrayList<>();
+            
+            // Read existing content
+            if (file.exists()) {
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    lines.add(line);
+                }
+                reader.close();
+            }
+            
+            // Find if user already has results
+            boolean userFound = false;
+            for (int i = 0; i < lines.size(); i++) {
+                if (lines.get(i).startsWith(userEmail + "#")) {
+                    // User exists, append new result
+                    String existingLine = lines.get(i);
+                    String newResult = selectedQuiz + "-" + score + "/" + totalQuestions;
+                    lines.set(i, existingLine + "#" + newResult);
+                    userFound = true;
+                    break;
+                }
+            }
+            
+            // If user not found, create new line
+            if (!userFound) {
+                String newLine = userEmail + "#" + selectedQuiz + "-" + score + "/" + totalQuestions;
+                lines.add(newLine);
+            }
+            
+            // Write back to file
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            for (String line : lines) {
+                writer.write(line);
+                writer.newLine();
+            }
+            writer.close();
+            
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error saving results: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    /**
      * Calculates and displays the final score
      */
     private void calculateScore() {
@@ -156,8 +222,21 @@ public class QuizDisplay extends javax.swing.JFrame
         
         JOptionPane.showMessageDialog(this, resultMessage, "Quiz Results", JOptionPane.INFORMATION_MESSAGE);
         
-        // Close the quiz window
-        this.dispose();
+        // Write result to file
+        writeResultToFile();
+        
+        // Ask if user wants to view their results
+        int choice = JOptionPane.showConfirmDialog(this, 
+            "Would you like to view your results?", 
+            "View Results", 
+            JOptionPane.YES_NO_OPTION);
+        
+        if (choice == JOptionPane.YES_OPTION) {
+            this.setVisible(false);
+            new StudentResultsViewer(userEmail).setVisible(true);
+        } else {
+            this.setVisible(false);
+        }
     }
 
     /**
@@ -176,7 +255,7 @@ public class QuizDisplay extends javax.swing.JFrame
         BtnNotes = new javax.swing.JButton();
         BtnQuiz = new javax.swing.JButton();
         BtnFAQs = new javax.swing.JButton();
-        BtnSettings = new javax.swing.JButton();
+        BtnLogOut = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblGrade = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -249,9 +328,14 @@ public class QuizDisplay extends javax.swing.JFrame
         BtnFAQs.setForeground(new java.awt.Color(255, 255, 255));
         BtnFAQs.setText("FAQs");
 
-        BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
-        BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSettings.setText("Log Out");
+        BtnLogOut.setBackground(new java.awt.Color(0, 0, 0));
+        BtnLogOut.setForeground(new java.awt.Color(255, 255, 255));
+        BtnLogOut.setText("Back to Menu");
+        BtnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLogOutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -260,7 +344,7 @@ public class QuizDisplay extends javax.swing.JFrame
             .addComponent(BtnNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
             .addComponent(BtnFAQs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,7 +356,7 @@ public class QuizDisplay extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnFAQs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -454,7 +538,8 @@ public class QuizDisplay extends javax.swing.JFrame
         // Save current answer
         saveCurrentAnswer();
         
-        if (currentQuestion == totalQuestions) {
+        if (currentQuestion == totalQuestions) 
+        {
             // Ask for confirmation before finishing
             int choice = JOptionPane.showConfirmDialog(this, 
                 "Are you sure you want to finish the quiz?\nYou cannot change your answers after submitting.", 
@@ -475,6 +560,12 @@ public class QuizDisplay extends javax.swing.JFrame
         // Save answer when user changes selection
         saveCurrentAnswer();
     }//GEN-LAST:event_cbAnswerActionPerformed
+
+    private void BtnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutActionPerformed
+        // Back to Menu
+        this.setVisible(false);
+        new HistoryED().setVisible(true);
+    }//GEN-LAST:event_BtnLogOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -518,7 +609,7 @@ public class QuizDisplay extends javax.swing.JFrame
     private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnNotes;
     private javax.swing.JButton BtnQuiz;
-    private javax.swing.JButton BtnSettings;
+    private javax.swing.JButton BtnLogOut;
     private javax.swing.JLabel LBLOption1;
     private javax.swing.JLabel LBLOption2;
     private javax.swing.JLabel LBLOption3;

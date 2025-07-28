@@ -30,15 +30,14 @@ public class QuizInterfaceClass {
             Scanner scFile = new Scanner(new File(currentQuiz + ".txt"));
 
             while (scFile.hasNextLine()) {
-                String line = scFile.nextLine();
-                if (!line.trim().isEmpty()) {
-                    count++;
-                }
+                Scanner scLine = new Scanner(scFile.nextLine()).useDelimiter("#");
+                count++;
+                scFile.nextLine();
             }
             scFile.close();
 
         } catch (FileNotFoundException ex) {
-            System.out.println("File Not Found: " + currentQuiz + ".txt");
+            System.out.println("File Not Found!");
         }
         return count;
     }
@@ -48,28 +47,27 @@ public class QuizInterfaceClass {
             Scanner scFile = new Scanner(new File(currentQuiz + ".txt"));
 
             while (scFile.hasNextLine()) {
-                String line = scFile.nextLine();
-                if (!line.trim().isEmpty()) {
-                    quiz.add(line);
-                }
+                quiz.add(scFile.nextLine());
             }
             scFile.close();
 
         } catch (FileNotFoundException ex) {
-            System.out.println("File Not Found: " + currentQuiz + ".txt");
+            System.out.println("File Not Found!");
         }
     }
     
     public String qetQuestion(int questionNumber) {
-        if (questionNumber > 0 && questionNumber <= quiz.size()) {
+        if (questionNumber > 0 && questionNumber <= quiz.size()) 
+        {
             return quiz.get(questionNumber - 1);
         }
-        return "Question not found";
+       return "";
     }
     
     public String getAnswers(int questionNumber) 
     {
-        if (questionNumber > 0 && questionNumber <= quiz.size()) {
+        if (questionNumber > 0 && questionNumber <= quiz.size()) 
+        {
             Scanner scLine = new Scanner(quiz.get(questionNumber - 1)).useDelimiter("#");
             String output = "";
             while (scLine.hasNext()) {
@@ -77,7 +75,7 @@ public class QuizInterfaceClass {
             }
             return output;
         }
-        return "Answers not found";
+        return "";
     }
     
     public String getCorrectAnswer(int questionNumber) {
@@ -87,7 +85,7 @@ public class QuizInterfaceClass {
                 return parts[5]; // Assuming correct answer is at index 5
             }
         }
-        return "";
+       return"";
     }
     
 }

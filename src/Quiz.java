@@ -158,6 +158,11 @@ public class Quiz extends javax.swing.JFrame {
         });
 
         jButton3.setText("Grade 10");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Grade 11");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -263,28 +268,37 @@ public class Quiz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new G9Quiz().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new G11Quiz().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new G12Quiz().setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
         // TODO add your handling code here:
-        String notes = "This is the notes screen. This is where you can select a topic you want to read. ";
+        String notes = "This is the notes screen. This is where you can select a topic you want to do a quiz on. ";
         notes += "In order to do so, first select a grade, after selecting a grade then after click on the topic ";
         notes += "you would like to do ";
         JOptionPane.showMessageDialog(null, notes , "Help - Notes Screen" , JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_BtnHelpActionPerformed
 
-    private void BtnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSettingsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnSettingsActionPerformed
+    private void BtnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutActionPerformed
+        this.setVisible(false);
+        new HistoryED().setVisible(true);
+    }//GEN-LAST:event_BtnLogOutActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.setVisible(false);
+        new G10Quiz().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,7 +331,7 @@ public class Quiz extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Notes().setVisible(true);
+                new Quiz().setVisible(true);
             }
         });
     }

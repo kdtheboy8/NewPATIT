@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kudamlambo
@@ -32,7 +34,7 @@ public class Menu1 extends javax.swing.JFrame {
         BtnNotes = new javax.swing.JButton();
         BtnQuiz = new javax.swing.JButton();
         BtnFAQs = new javax.swing.JButton();
-        BtnSettings = new javax.swing.JButton();
+        BtnLogOut = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         LBLLogo2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -99,9 +101,19 @@ public class Menu1 extends javax.swing.JFrame {
             }
         });
 
-        BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
-        BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSettings.setText("Log Out");
+        BtnViewResults = new javax.swing.JButton();
+        BtnViewResults.setBackground(new java.awt.Color(0, 0, 0));
+        BtnViewResults.setForeground(new java.awt.Color(255, 255, 255));
+        BtnViewResults.setText("View Results");
+        BtnViewResults.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnViewResultsActionPerformed(evt);
+            }
+        });
+
+        BtnLogOut.setBackground(new java.awt.Color(0, 0, 0));
+        BtnLogOut.setForeground(new java.awt.Color(255, 255, 255));
+        BtnLogOut.setText("Log Out");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -110,7 +122,8 @@ public class Menu1 extends javax.swing.JFrame {
             .addComponent(BtnNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
             .addComponent(BtnFAQs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnViewResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +135,9 @@ public class Menu1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(BtnFAQs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addComponent(BtnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnViewResults, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(100, Short.MAX_VALUE))
         );
 
@@ -187,18 +202,48 @@ public class Menu1 extends javax.swing.JFrame {
 
     private void BtnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNotesActionPerformed
         this.setVisible(false);
-        new TermNotes().setVisible(true);
+        new Notes().setVisible(true);
     }//GEN-LAST:event_BtnNotesActionPerformed
 
     private void BtnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuizActionPerformed
         this.setVisible(false);
-        new Quiz().setVisible(true);
+        new QuizDisplay("G8", "G8").setVisible(true);
     }//GEN-LAST:event_BtnQuizActionPerformed
 
     private void BtnFAQsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFAQsActionPerformed
         this.setVisible(false);
-        new SignUp().setVisible(true);
+        new faqs().setVisible(true);
     }//GEN-LAST:event_BtnFAQsActionPerformed
+
+    private void BtnViewResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnViewResultsActionPerformed
+        // Ask user if they are a teacher or student
+        String[] options = {"Teacher", "Student"};
+        int choice = JOptionPane.showOptionDialog(this, 
+            "Are you a teacher or student?", 
+            "Select Role", 
+            JOptionPane.DEFAULT_OPTION, 
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            options, 
+            options[0]);
+        
+        if (choice == 0) {
+            // Teacher
+            this.setVisible(false);
+            new TeacherResultsViewer().setVisible(true);
+        } else if (choice == 1) {
+            // Student - prompt for email
+            String email = JOptionPane.showInputDialog(this, 
+                "Enter your email address:", 
+                "Student Email", 
+                JOptionPane.QUESTION_MESSAGE);
+            
+            if (email != null && !email.trim().isEmpty()) {
+                this.setVisible(false);
+                new StudentResultsViewer(email.trim()).setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_BtnViewResultsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,7 +286,8 @@ public class Menu1 extends javax.swing.JFrame {
     private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnNotes;
     private javax.swing.JButton BtnQuiz;
-    private javax.swing.JButton BtnSettings;
+    private javax.swing.JButton BtnLogOut;
+    private javax.swing.JButton BtnViewResults;
     private javax.swing.JLabel LBLLogo2;
     private javax.swing.JLabel LBLlogo;
     private javax.swing.JPanel jPanel1;
