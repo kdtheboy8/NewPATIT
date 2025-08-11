@@ -122,60 +122,35 @@ public class Login extends javax.swing.JFrame {
 
     private void BtnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSignUpActionPerformed
         //File name of text file
-        String filePath =  "UserDetails.txt";
-        
+        String filePath = "UserDetails.txt";
+
         //Retrieve info input by user
         String email = txfemail.getText();
         String password = txfpassword.getText();
         boolean emailFound = false;
         boolean passwordMatch = false;
-        
-        try 
-        {
+
+        try {
             Scanner scFile = new Scanner(new File(filePath));
-           
-            while (scFile.hasNextLine()) 
-            {
+
+            while (scFile.hasNextLine()) {
                 Scanner scLine = new Scanner(scFile.nextLine()).useDelimiter("#");
                 scLine.next(); // first name
                 scLine.next(); // surname
                 String emailInFile = scLine.next();
                 String passInFile = scLine.next();
-                
+                System.out.println(emailInFile + " hiuser");
+
                 //Check if email is registered
-                if (emailInFile.equalsIgnoreCase(email))
-                {
-                    emailFound = true;
-                    //Check if password is correct 
-                    if (passInFile.equals(password))
-                    {
-                        passwordMatch = true;
-                        break;
-                    }
+                if (emailInFile.equalsIgnoreCase(email) && passInFile.equals(password)) {
+                    this.setVisible(false);
+                    Menu1 menu = new Menu1();
+                    menu.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Password or email is incorrect", "Login Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-            
-            //if password is a match direct to menu 
-            if (emailFound && passwordMatch)
-            {
-                // Successful login
-                this.setVisible(false);
-                Menu1 menu = new Menu1();
-                menu.setVisible(true);
-            } 
-            else if (emailFound)
-            {
-                // Email found but password incorrect
-                JOptionPane.showMessageDialog(this, "Password is incorrect", "Login Error", JOptionPane.ERROR_MESSAGE);
-            }
-            else 
-            {
-                // Email not found
-                JOptionPane.showMessageDialog(this, "Email is not registered", "Login Error", JOptionPane.ERROR_MESSAGE);
-            }
-            
-        } catch (FileNotFoundException ex) 
-        {
+        } catch (FileNotFoundException ex) {
             System.out.println("File Not Found!");
         }
     }//GEN-LAST:event_BtnSignUpActionPerformed
