@@ -15,18 +15,33 @@ import javax.swing.JOptionPane;
  *
  * @author kudamlambo
  */
-public class TransformNotesG10 extends javax.swing.JFrame
-{
-     UserDetails userDetails ;
+public class NotesDisplay extends javax.swing.JFrame {
+
+    UserDetails userDetails;
+    String buttonClickedNotes;
+
     /**
      * Creates new form IndustrialRevolution
+     *
+     * @param notesName
      */
-    public TransformNotesG10() 
-    {
-        
+    public NotesDisplay(String notesName) {
+        this.buttonClickedNotes = notesName;
         initComponents();
         
-        
+        String output = "";
+
+        try {
+            Scanner scFile = new Scanner(new File(buttonClickedNotes));
+            while (scFile.hasNextLine()) {
+                output += scFile.nextLine() + "\n";
+            }
+            jTextArea.setText(output);
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("File Not Found!");
+        }
+
     }
 
     /**
