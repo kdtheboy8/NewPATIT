@@ -200,99 +200,84 @@ public class SignUp extends javax.swing.JFrame {
         String fName = txfFname.getText();
         String sName = txfSurname.getText();
         String email = txfAddress.getText();
-        String pass = txfPassword.getText();           
+        String pass = txfPassword.getText();
         String role = CMBRole.getSelectedItem().toString();
         String cellNo = txfCellNo.getText();
-        
+
         //email search
-        String filePath =  "UserDetails.txt";
+        String filePath = "UserDetails.txt";
         try {
             Scanner scFile = new Scanner(new File(filePath));
-           
+
             while (scFile.hasNextLine()) {
                 Scanner scLine = new Scanner(scFile.nextLine()).useDelimiter("#");
                 scLine.next();
                 scLine.next();
                 String emailInFile = scLine.next();
-                
+
                 if (emailInFile.equalsIgnoreCase(email)) {
                     JOptionPane.showMessageDialog(null, "You have already signed up using the entered email");
-                    this.setVisible(false);
-                    Login loginScreen = new Login();
-                    loginScreen.setVisible(true);
-                    return; // Stop further execution if email is found
                 }
             }
-            
+
         } catch (FileNotFoundException ex) {
             System.out.println("File Not Found!");
         }
-        
-        
-        
-        
+
+        boolean bFName = false;
+        boolean bSName = false;
+        boolean bCellNo = false;
+
         //Validation check 
         //fName - Presence check
-        if (fName.length() == 0) 
-        {
-           LBLfNameStatus.setText("Please enter a name");
-           txfFname.setBackground(Color.red);
-           
-        }
-        else
-        {
+        if (fName.length() == 0) {
+            LBLfNameStatus.setText("Please enter a name");
+            txfFname.setBackground(Color.red);
+
+        } else {
             LBLfNameStatus.setText("Entered");
             txfFname.setBackground(Color.green);
+            bFName = true;
         }
-       
-        
+
         //surname - Presence check
-        if (sName.length() == 0) 
-        {
-            LBLSnameStatus.setText("Please enter a surname"); 
+        if (sName.length() == 0) {
+            LBLSnameStatus.setText("Please enter a surname");
             txfSurname.setBackground(Color.red);
-        }
-        else
-        {
-            LBLSnameStatus.setText("Surname has been entered"); 
+        } else {
+            LBLSnameStatus.setText("Surname has been entered");
             txfSurname.setBackground(Color.green);
+            bSName = true;
         }
-        
+
         //cellNo - length check
-        if (cellNo.length() == 10) 
-        {
-            LBLCellNoStatus.setText("Number is valid"); 
+        if (cellNo.length() >= 10) {
+            LBLCellNoStatus.setText("Number is valid");
             txfCellNo.setBackground(Color.green);
-        }
-        else
-        {
-            LBLCellNoStatus.setText("Number must be 10 digits"); 
+            bCellNo = true;
+        } else {
+            LBLCellNoStatus.setText("Number must be 10 digits");
             txfCellNo.setBackground(Color.red);
-        
-        
-        String textToAdd =fName+"#"+sName+"#"+email+"#"+pass+"#"+role+"#"+cellNo+"\n";
-        
-        String wordToCheck = "war"; // 🔍 Word to search for (case-insensitive)
-        int wordCount = 0;
-            
-        try 
-        {
-            //write user's details into text file
-            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
-            writer.write(textToAdd);
-            writer.close();
-            JOptionPane.showMessageDialog(null,"You have successfully signed up");
-            
-            //Add new information to textfile
-            this.setVisible(false);
-            new Menu1().setVisible(true);
-        } 
-        
-        catch (IOException e) 
-        {
-            JOptionPane.showMessageDialog(null, "Please try again");
-           
-        }
+
+            String textToAdd = fName + "#" + sName + "#" + email + "#" + pass + "#" + role + "#" + cellNo + "\n";
+
+            try {
+                if (bCellNo && bSName && bFName) {
+                    //write user's details into text file
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+                    writer.write(textToAdd);
+                    writer.close();
+                    JOptionPane.showMessageDialog(null, "You have successfully signed up");
+
+                    //Add new information to textfile
+                    this.setVisible(false);
+                    new Menu1().setVisible(true);
+                }
+
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Please try again");
+
+            }
             
         
        }
