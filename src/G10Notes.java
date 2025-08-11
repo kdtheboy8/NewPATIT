@@ -295,7 +295,7 @@ public class G10Notes extends javax.swing.JFrame
 
     private void BtnTopic1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic1ActionPerformed
         this.setVisible(false);
-        new TransformNotesG10().setVisible(true);
+        new NotesDisplay("TransformNotesG10.txt").setVisible(true);
     }//GEN-LAST:event_BtnTopic1ActionPerformed
 
     private void BtnTopic4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic4ActionPerformed
