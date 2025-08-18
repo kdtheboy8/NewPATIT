@@ -289,7 +289,7 @@ public class G9Notes extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        new ColdWarNotesG9().setVisible(true);
+        new NotesDisplay("ColdWarNotesG9").setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutActionPerformed
@@ -299,12 +299,12 @@ public class G9Notes extends javax.swing.JFrame
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.setVisible(false);
-        new TPinSAHistoryNotesG9().setVisible(true);
+        new NotesDisplay("TPinSAHistoryNotesG9").setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
-        new WorldWar2NotesG9().setVisible(true);
+        new NotesDisplay("WorldWar2NotesG9").setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -338,7 +338,7 @@ public class G9Notes extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Notes().setVisible(true);
+                new G9Notes().setVisible(true);
             }
         });
     }

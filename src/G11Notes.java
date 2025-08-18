@@ -292,22 +292,22 @@ public class G11Notes extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        new CommunismNotesG11().setVisible(true);
+        new NotesDisplay("CommunismNotesG11").setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
-        new ApartheidNotesG11().setVisible(true);
+        new NotesDisplay("ApartheidNotesG11").setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.setVisible(false);
-        new Late19And20CenturyNotesG11().setVisible(true);
+        new NotesDisplay("Late19And20CenturyNotesG11").setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
-        new CapitalismNotesG11().setVisible(true);
+        new NotesDisplay("CapitalismNotesG11").setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -341,7 +341,7 @@ public class G11Notes extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Notes().setVisible(true);
+                new G11Notes().setVisible(true);
             }
         });
     }

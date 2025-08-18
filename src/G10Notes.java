@@ -300,17 +300,17 @@ public class G10Notes extends javax.swing.JFrame
 
     private void BtnTopic4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic4ActionPerformed
         this.setVisible(false);
-        new FrenchRevolutionNotesG10().setVisible(true);
+        new NotesDisplay("FrenchRevolutionNotesG10").setVisible(true);
     }//GEN-LAST:event_BtnTopic4ActionPerformed
 
     private void BtnTopic3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic3ActionPerformed
         this.setVisible(false);
-        new The15thAnd16thCenturyNotesG10().setVisible(true);
+        new NotesDisplay("The15thAnd16thCenturyNotesG10").setVisible(true);
     }//GEN-LAST:event_BtnTopic3ActionPerformed
 
     private void BtnTopic2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic2ActionPerformed
         this.setVisible(false);
-        new ColonialExpansionNotesG10().setVisible(true);
+        new NotesDisplay("ColonialExpansionNotesG10").setVisible(true);
     }//GEN-LAST:event_BtnTopic2ActionPerformed
 
     /**
@@ -343,8 +343,9 @@ public class G10Notes extends javax.swing.JFrame
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Notes().setVisible(true);
+            public void run() 
+            {
+                new G10Notes().setVisible(true);
             }
         });
     }

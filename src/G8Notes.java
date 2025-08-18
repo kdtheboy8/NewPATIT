@@ -42,7 +42,7 @@ public class G8Notes extends javax.swing.JFrame
         BtnNotes = new javax.swing.JButton();
         BtnQuiz = new javax.swing.JButton();
         BtnFAQs = new javax.swing.JButton();
-        BtnSettings = new javax.swing.JButton();
+        BtnLogOut = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         LBLLogo2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -123,12 +123,12 @@ public class G8Notes extends javax.swing.JFrame
             }
         });
 
-        BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
-        BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSettings.setText("Log Out");
-        BtnSettings.addActionListener(new java.awt.event.ActionListener() {
+        BtnLogOut.setBackground(new java.awt.Color(0, 0, 0));
+        BtnLogOut.setForeground(new java.awt.Color(255, 255, 255));
+        BtnLogOut.setText("Log Out");
+        BtnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSettingsActionPerformed(evt);
+                BtnLogOutActionPerformed(evt);
             }
         });
 
@@ -139,7 +139,7 @@ public class G8Notes extends javax.swing.JFrame
             .addComponent(BtnNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
             .addComponent(BtnFAQs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +151,7 @@ public class G8Notes extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnFAQs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -311,33 +311,32 @@ public class G8Notes extends javax.swing.JFrame
 
     private void BtnTopic1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic1ActionPerformed
         this.setVisible(false);
-        new IndustrialRevolutionNotes().setVisible(true);
-        
+        new NotesDisplay("IndustrialRevolutionNotes").setVisible(true);         
     }//GEN-LAST:event_BtnTopic1ActionPerformed
 
     private void BtnTopic2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic2ActionPerformed
         this.setVisible(false);
-        new MineralRevolutionNotesG8().setVisible(true);
+        new NotesDisplay("MineralRevolutionNotesG8").setVisible(true);
     }//GEN-LAST:event_BtnTopic2ActionPerformed
 
     private void BtnTopic3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic3ActionPerformed
         this.setVisible(false);
-        new ScrambleForAfricaNotesG8().setVisible(true);
+        new NotesDisplay("ScrambleForAfricaNotesG8").setVisible(true);
     }//GEN-LAST:event_BtnTopic3ActionPerformed
 
     private void BtnTopic4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic4ActionPerformed
         this.setVisible(false);
-        new WorldWar1NotesG8().setVisible(true);
+        new NotesDisplay("WorldWar1NotesG8").setVisible(true);
     }//GEN-LAST:event_BtnTopic4ActionPerformed
 
     private void BtnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNotesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnNotesActionPerformed
 
-    private void BtnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSettingsActionPerformed
+    private void BtnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutActionPerformed
         this.setVisible(false);
         new HistoryED().setVisible(true);
-    }//GEN-LAST:event_BtnSettingsActionPerformed
+    }//GEN-LAST:event_BtnLogOutActionPerformed
 
     private void BtnFAQsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFAQsActionPerformed
         // TODO add your handling code here:
@@ -374,7 +373,7 @@ public class G8Notes extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Notes().setVisible(true);
+                new G8Notes().setVisible(true);
             }
         });
     }
@@ -383,9 +382,9 @@ public class G8Notes extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnFAQs;
     private javax.swing.JButton BtnHelp;
+    private javax.swing.JButton BtnLogOut;
     private javax.swing.JButton BtnNotes;
     private javax.swing.JButton BtnQuiz;
-    private javax.swing.JButton BtnSettings;
     private javax.swing.JButton BtnTopic1;
     private javax.swing.JButton BtnTopic2;
     private javax.swing.JButton BtnTopic3;

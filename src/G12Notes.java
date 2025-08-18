@@ -283,7 +283,7 @@ public class G12Notes extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        new CivilProtestsNotesG12().setVisible(true);
+        new NotesDisplay("CivilProtestsNotesG12").setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuizActionPerformed
@@ -296,7 +296,7 @@ public class G12Notes extends javax.swing.JFrame
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
-        new CivilResistanceNotesG12().setVisible(true);
+        new NotesDisplay("CivilResistanceNotesG12").setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -330,7 +330,7 @@ public class G12Notes extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Notes().setVisible(true);
+                new G12Notes().setVisible(true);
             }
         });
     }

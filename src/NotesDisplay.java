@@ -1,9 +1,10 @@
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -248,7 +249,7 @@ public class NotesDisplay extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TransformNotesG10().setVisible(true);
+                new NotesDisplay().setVisible(true);
             }
         });
     }
