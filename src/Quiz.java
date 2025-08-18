@@ -284,7 +284,7 @@ public class Quiz extends javax.swing.JFrame {
 
     private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
         // TODO add your handling code here:
-        String notes = "This is the notes screen. This is where you can select a topic you want to do a quiz on. ";
+        String notes = "This is the Quiz screen. This is where you can select a topic you want to do a quiz on. ";
         notes += "In order to do so, first select a grade, after selecting a grade then after click on the topic ";
         notes += "you would like to do ";
         JOptionPane.showMessageDialog(null, notes , "Help - Notes Screen" , JOptionPane.INFORMATION_MESSAGE);
