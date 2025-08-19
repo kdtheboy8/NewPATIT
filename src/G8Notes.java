@@ -165,14 +165,14 @@ public class G8Notes extends javax.swing.JFrame
 
         LBLTerm1.setText("Term 1: ");
 
-        BtnTopic1.setText("Industiral Revolution");
+        BtnTopic1.setText("Industiral Revolution G8");
         BtnTopic1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTopic1ActionPerformed(evt);
             }
         });
 
-        BtnTopic2.setText(" Mineral Revolution of South Africa ");
+        BtnTopic2.setText("The Mineral Revolution of South Africa G8");
         BtnTopic2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTopic2ActionPerformed(evt);
@@ -181,7 +181,7 @@ public class G8Notes extends javax.swing.JFrame
 
         LBLTerm2.setText("Term 2:");
 
-        BtnTopic3.setText("Scramble for Africa");
+        BtnTopic3.setText("The Scramble for Africa G8");
         BtnTopic3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTopic3ActionPerformed(evt);
@@ -190,7 +190,7 @@ public class G8Notes extends javax.swing.JFrame
 
         LBLTerm3.setText("Term 3: ");
 
-        BtnTopic4.setText("World War I");
+        BtnTopic4.setText("World War I (1914–1918) G8");
         BtnTopic4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTopic4ActionPerformed(evt);
@@ -311,22 +311,22 @@ public class G8Notes extends javax.swing.JFrame
 
     private void BtnTopic1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic1ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("IndustrialRevolutionNotes").setVisible(true);         
+        new NotesDisplay(BtnTopic1.getText()).setVisible(true);         
     }//GEN-LAST:event_BtnTopic1ActionPerformed
 
     private void BtnTopic2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic2ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("MineralRevolutionNotesG8").setVisible(true);
+        new NotesDisplay(BtnTopic2.getText()).setVisible(true);
     }//GEN-LAST:event_BtnTopic2ActionPerformed
 
     private void BtnTopic3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic3ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("ScrambleForAfricaNotesG8").setVisible(true);
+        new NotesDisplay(BtnTopic3.getText()).setVisible(true);
     }//GEN-LAST:event_BtnTopic3ActionPerformed
 
     private void BtnTopic4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic4ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("WorldWar1NotesG8").setVisible(true);
+        new NotesDisplay(BtnTopic4.getText()).setVisible(true);
     }//GEN-LAST:event_BtnTopic4ActionPerformed
 
     private void BtnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNotesActionPerformed

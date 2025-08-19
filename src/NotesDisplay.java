@@ -33,16 +33,23 @@ public class NotesDisplay extends javax.swing.JFrame {
         String output = "";
 
         try {
-            Scanner scFile = new Scanner(new File(buttonClickedNotes));
+            // Try to read from TextFiles directory with .txt extension
+            Scanner scFile = new Scanner(new File("TextFiles/" + buttonClickedNotes + ".txt"));
             while (scFile.hasNextLine()) {
                 output += scFile.nextLine() + "\n";
             }
             jTextArea.setText(output);
 
         } catch (FileNotFoundException ex) {
-            System.out.println("File Not Found!");
+            System.out.println("File Not Found: TextFiles/" + buttonClickedNotes + ".txt");
+            jTextArea.setText("Error: Could not load notes file: " + buttonClickedNotes + ".txt");
         }
 
+    }
+
+    // Convenience constructor for running directly without parameters
+    public NotesDisplay() {
+        this("Industiral Revolution G8");
     }
 
     /**
@@ -74,7 +81,7 @@ public class NotesDisplay extends javax.swing.JFrame {
 
         BtnExit.setText("Exit");
 
-        jLabel1.setText("Cold War ");
+        jLabel1.setText(buttonClickedNotes);
 
         BtnRead.setText("Read Text");
         BtnRead.addActionListener(new java.awt.event.ActionListener() {
@@ -156,9 +163,9 @@ public class NotesDisplay extends javax.swing.JFrame {
         jTextArea.setText(""); 
         
         // The name of the file to read
-        String fileName = "Transformations in Southern Africa After 1750 G10.txt";
+        String fileName = "TextFiles/" + buttonClickedNotes + ".txt";
         
-        // Try to read from the current directory first
+        // Try to read from the TextFiles directory
         java.io.File file = new java.io.File(fileName);
         
         try (BufferedReader br = new BufferedReader(new FileReader(file))) 

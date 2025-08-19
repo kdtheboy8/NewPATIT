@@ -144,14 +144,14 @@ public class G8Quiz extends javax.swing.JFrame
 
         jLabel1.setText("Term 1: ");
 
-        BtnQuizIndusRevolution.setText("Industiral Revolution");
+        BtnQuizIndusRevolution.setText("IndustrialRevolution");
         BtnQuizIndusRevolution.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnQuizIndusRevolutionActionPerformed(evt);
             }
         });
 
-        BtnMineralRev.setText(" Mineral Revolution of South Africa ");
+        BtnMineralRev.setText("MineralRevolutionSA");
         BtnMineralRev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMineralRevActionPerformed(evt);
@@ -160,7 +160,7 @@ public class G8Quiz extends javax.swing.JFrame
 
         jLabel2.setText("Term 2:");
 
-        BtnScramble.setText("Scramble for Africa");
+        BtnScramble.setText("ScrambleForAfrica");
         BtnScramble.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnScrambleActionPerformed(evt);
@@ -169,7 +169,7 @@ public class G8Quiz extends javax.swing.JFrame
 
         jLabel4.setText("Term 3: ");
 
-        BtnWW1.setText("World War I");
+        BtnWW1.setText("WorldWar1");
         BtnWW1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnWW1ActionPerformed(evt);

@@ -154,7 +154,7 @@ public class G9Notes extends javax.swing.JFrame
 
         jLabel1.setText("Term 1: ");
 
-        jButton1.setText("The  Cold War ");
+        jButton1.setText("The Nuclear Age and the Cold War G9");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -163,7 +163,7 @@ public class G9Notes extends javax.swing.JFrame
 
         jLabel2.setText("Term 2:");
 
-        jButton3.setText("World War II ");
+        jButton3.setText("The Rise of Nazi Germany and World War II (1919–1945) G9");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -172,7 +172,7 @@ public class G9Notes extends javax.swing.JFrame
 
         jLabel4.setText("Term 3: ");
 
-        jButton4.setText("Turning Points in South African History");
+        jButton4.setText("Turning Points in South African History (1960, 1976, and 1990) G9");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -289,7 +289,7 @@ public class G9Notes extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("ColdWarNotesG9").setVisible(true);
+        new NotesDisplay(jButton1.getText()).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutActionPerformed
@@ -299,12 +299,12 @@ public class G9Notes extends javax.swing.JFrame
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("TPinSAHistoryNotesG9").setVisible(true);
+        new NotesDisplay(jButton4.getText()).setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("WorldWar2NotesG9").setVisible(true);
+        new NotesDisplay(jButton3.getText()).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

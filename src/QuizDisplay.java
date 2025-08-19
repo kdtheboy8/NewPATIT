@@ -33,15 +33,25 @@ public class QuizDisplay extends javax.swing.JFrame
         this.selectedQuiz = selectedQuiz;
         
         initComponents();
-        lblGrade.setText("Grade: " + currentGrade);
+        lblGrade.setText("Grade: " + currentGrade + " - Quiz: " + selectedQuiz);
         
         // Prompt for user email
         promptForEmail();
         
         // Initialize quiz interface with QuizQuestions directory
-        qic = new QuizInterfaceClass(grade, "TextFiles/QuizQuestions/" + selectedQuiz);
+        qic = new QuizInterfaceClass(grade, "QuizQuestions/" + selectedQuiz);
         qic.addToArray();
         totalQuestions = qic.numberOfQuestions();
+        
+        // Check if quiz loaded successfully
+        if (totalQuestions == 0) {
+            JOptionPane.showMessageDialog(this, 
+                "Error: Could not load quiz '" + selectedQuiz + "'. Please check if the quiz file exists.", 
+                "Quiz Error", 
+                JOptionPane.ERROR_MESSAGE);
+            this.dispose();
+            return;
+        }
         
         // Initialize user answers array
         for (int i = 0; i < totalQuestions; i++) {
@@ -53,6 +63,11 @@ public class QuizDisplay extends javax.swing.JFrame
         updateNavigationButtons();
     }
 
+    // Convenience constructor for running directly without parameters
+    public QuizDisplay() {
+        this("8", "IndustrialRevolution");
+    }
+
     /**
      * Loads a specific question and displays it
      */
@@ -61,7 +76,7 @@ public class QuizDisplay extends javax.swing.JFrame
             currentQuestion = questionNumber;
             
             // Get question and answers
-            String questionData = qic.qetQuestion(questionNumber);
+            String questionData = qic.getQuestion(questionNumber);
             String[] parts = questionData.split("#");
             
             if (parts.length >= 6) {
@@ -79,12 +94,26 @@ public class QuizDisplay extends javax.swing.JFrame
                     correctAnswers.add(parts[5]); // Correct answer is at index 5
                 }
                 
+                // Set up combo box with answer options
+                cbAnswer.removeAllItems();
+                cbAnswer.addItem("A - " + parts[1]);
+                cbAnswer.addItem("B - " + parts[2]);
+                cbAnswer.addItem("C - " + parts[3]);
+                cbAnswer.addItem("D - " + parts[4]);
+                
                 // Set previously selected answer if exists
                 if (!userAnswers.get(questionNumber - 1).isEmpty()) {
                     cbAnswer.setSelectedItem(userAnswers.get(questionNumber - 1));
                 } else {
                     cbAnswer.setSelectedIndex(0);
                 }
+            } else {
+                // Handle malformed question data
+                lblQuestion.setText("Error: Invalid question format");
+                LBLOption1.setText("A - Error");
+                LBLOption2.setText("B - Error");
+                LBLOption3.setText("C - Error");
+                LBLOption4.setText("D - Error");
             }
         }
     }
@@ -125,7 +154,9 @@ public class QuizDisplay extends javax.swing.JFrame
      */
     private void saveCurrentAnswer() {
         String selectedAnswer = (String) cbAnswer.getSelectedItem();
-        userAnswers.set(currentQuestion - 1, selectedAnswer);
+        if (selectedAnswer != null) {
+            userAnswers.set(currentQuestion - 1, selectedAnswer);
+        }
     }
     
     /**
@@ -199,8 +230,15 @@ public class QuizDisplay extends javax.swing.JFrame
         score = 0;
         for (int i = 0; i < totalQuestions; i++) {
             if (i < correctAnswers.size() && i < userAnswers.size()) {
-                if (userAnswers.get(i).equals(correctAnswers.get(i))) {
-                    score++;
+                String userAnswer = userAnswers.get(i);
+                String correctAnswer = correctAnswers.get(i);
+                
+                // Extract the letter from user answer (e.g., "A - Option" -> "A")
+                if (userAnswer != null && !userAnswer.isEmpty() && userAnswer.contains(" - ")) {
+                    String userLetter = userAnswer.substring(0, 1);
+                    if (userLetter.equals(correctAnswer)) {
+                        score++;
+                    }
                 }
             }
         }

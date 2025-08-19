@@ -160,7 +160,7 @@ public class G12Quiz extends javax.swing.JFrame
 
         jLabel1.setText("Term 1: ");
 
-        jButton1.setText("Civil Society Protests ");
+        jButton1.setText("CivilProtests");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -169,7 +169,12 @@ public class G12Quiz extends javax.swing.JFrame
 
         jLabel2.setText("Term 2:");
 
-        jButton3.setText("Civil Resistance in South Africa ");
+        jButton3.setText("CivilResistance");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -272,8 +277,12 @@ public class G12Quiz extends javax.swing.JFrame
     }//GEN-LAST:event_BtnHelpMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        new QuizDisplay("12", jButton1.getText()).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new QuizDisplay("12", jButton3.getText()).setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void BtnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuizActionPerformed
         // TODO add your handling code here:

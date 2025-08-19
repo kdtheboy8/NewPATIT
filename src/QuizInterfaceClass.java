@@ -30,14 +30,15 @@ public class QuizInterfaceClass {
             Scanner scFile = new Scanner(new File(currentQuiz + ".txt"));
 
             while (scFile.hasNextLine()) {
-                Scanner scLine = new Scanner(scFile.nextLine()).useDelimiter("#");
-                count++;
-                scFile.nextLine();
+                String line = scFile.nextLine();
+                if (!line.trim().isEmpty()) {
+                    count++;
+                }
             }
             scFile.close();
 
         } catch (FileNotFoundException ex) {
-            System.out.println("File Not Found!");
+            System.out.println("File Not Found: " + currentQuiz + ".txt");
         }
         return count;
     }
@@ -47,16 +48,19 @@ public class QuizInterfaceClass {
             Scanner scFile = new Scanner(new File(currentQuiz + ".txt"));
 
             while (scFile.hasNextLine()) {
-                quiz.add(scFile.nextLine());
+                String line = scFile.nextLine();
+                if (!line.trim().isEmpty()) {
+                    quiz.add(line);
+                }
             }
             scFile.close();
 
         } catch (FileNotFoundException ex) {
-            System.out.println("File Not Found!");
+            System.out.println("File Not Found: " + currentQuiz + ".txt");
         }
     }
     
-    public String qetQuestion(int questionNumber) {
+    public String getQuestion(int questionNumber) {
         if (questionNumber > 0 && questionNumber <= quiz.size()) 
         {
             return quiz.get(questionNumber - 1);

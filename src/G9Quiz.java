@@ -149,7 +149,7 @@ public class G9Quiz extends javax.swing.JFrame
 
         jLabel1.setText("Term 1: ");
 
-        jButton1.setText("The  Cold War ");
+        jButton1.setText("ColdWar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -158,11 +158,21 @@ public class G9Quiz extends javax.swing.JFrame
 
         jLabel2.setText("Term 2:");
 
-        jButton3.setText("World War II ");
+        jButton3.setText("WorldWar2");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Term 3: ");
 
-        jButton4.setText("Turning Points in South African History");
+        jButton4.setText("Turning_Points_SA_History_Quiz");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -273,8 +283,16 @@ public class G9Quiz extends javax.swing.JFrame
     }//GEN-LAST:event_BtnHelpMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        new QuizDisplay("9", jButton1.getText()).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new QuizDisplay("9", jButton3.getText()).setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        new QuizDisplay("9", jButton4.getText()).setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

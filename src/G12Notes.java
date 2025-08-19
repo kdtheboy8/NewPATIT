@@ -165,7 +165,7 @@ public class G12Notes extends javax.swing.JFrame
 
         jLabel1.setText("Term 1: ");
 
-        jButton1.setText("Civil Society Protests ");
+        jButton1.setText("Civil Society Protests (1950s–1970s) G12");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -174,7 +174,7 @@ public class G12Notes extends javax.swing.JFrame
 
         jLabel2.setText("Term 2:");
 
-        jButton3.setText("Civil Resistance in South Africa ");
+        jButton3.setText("Civil Resistance in South Africa (1970s–1980s) G12");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -283,7 +283,7 @@ public class G12Notes extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("CivilProtestsNotesG12").setVisible(true);
+        new NotesDisplay(jButton1.getText()).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuizActionPerformed
@@ -296,7 +296,7 @@ public class G12Notes extends javax.swing.JFrame
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("CivilResistanceNotesG12").setVisible(true);
+        new NotesDisplay(jButton3.getText()).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

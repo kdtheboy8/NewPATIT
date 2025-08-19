@@ -150,14 +150,14 @@ public class G10Notes extends javax.swing.JFrame
 
         LBLTerm1.setText("Term 1: ");
 
-        BtnTopic1.setText("Transformations in Southern Africa After 1750");
+        BtnTopic1.setText("TransformNotesG10");
         BtnTopic1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTopic1ActionPerformed(evt);
             }
         });
 
-        BtnTopic2.setText("Colonial Expansion After 1750 ");
+        BtnTopic2.setText("Colonial Expansion After 1750 G10");
         BtnTopic2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTopic2ActionPerformed(evt);
@@ -166,7 +166,7 @@ public class G10Notes extends javax.swing.JFrame
 
         LBLTerm2.setText("Term 2:");
 
-        BtnTopic3.setText("The World in the 15th and 16th Centuries ");
+        BtnTopic3.setText("The15thAnd16thCenturyNotesG10");
         BtnTopic3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTopic3ActionPerformed(evt);
@@ -175,7 +175,7 @@ public class G10Notes extends javax.swing.JFrame
 
         LBLTerm3.setText("Term 3: ");
 
-        BtnTopic4.setText("The French Revolution ");
+        BtnTopic4.setText("The French Revolution G10");
         BtnTopic4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTopic4ActionPerformed(evt);
@@ -295,22 +295,22 @@ public class G10Notes extends javax.swing.JFrame
 
     private void BtnTopic1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic1ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("TransformNotesG10.txt").setVisible(true);
+        new NotesDisplay(BtnTopic1.getText()).setVisible(true);
     }//GEN-LAST:event_BtnTopic1ActionPerformed
 
     private void BtnTopic4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic4ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("FrenchRevolutionNotesG10").setVisible(true);
+        new NotesDisplay(BtnTopic4.getText()).setVisible(true);
     }//GEN-LAST:event_BtnTopic4ActionPerformed
 
     private void BtnTopic3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic3ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("The15thAnd16thCenturyNotesG10").setVisible(true);
+        new NotesDisplay(BtnTopic3.getText()).setVisible(true);
     }//GEN-LAST:event_BtnTopic3ActionPerformed
 
     private void BtnTopic2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic2ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("ColonialExpansionNotesG10").setVisible(true);
+        new NotesDisplay(BtnTopic2.getText()).setVisible(true);
     }//GEN-LAST:event_BtnTopic2ActionPerformed
 
     /**

@@ -150,22 +150,37 @@ public class G10Quiz extends javax.swing.JFrame
 
         jLabel1.setText("Term 1: ");
 
-        jButton1.setText("Transformations in Southern Africa After 1750");
+        jButton1.setText("Transformations");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Colonial Expansion After 1750 ");
+        jButton2.setText("ColonialExpansion");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Term 2:");
 
-        jButton3.setText("The World in the 15th and 16th Centuries ");
+        jButton3.setText("World_15th_16th_Centuries_Quiz");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Term 3: ");
 
-        jButton4.setText("The French Revolution ");
+        jButton4.setText("French_Revolution_Quiz");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -279,8 +294,20 @@ public class G10Quiz extends javax.swing.JFrame
     }//GEN-LAST:event_BtnHelpMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        new QuizDisplay("10", jButton1.getText()).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new QuizDisplay("10", jButton2.getText()).setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new QuizDisplay("10", jButton3.getText()).setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        new QuizDisplay("10", jButton4.getText()).setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

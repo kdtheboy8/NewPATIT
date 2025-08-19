@@ -150,14 +150,14 @@ public class G11Notes extends javax.swing.JFrame
 
         jLabel1.setText("Term 1: ");
 
-        jButton1.setText("Communism in Russia ");
+        jButton1.setText("Communism in Russia (1900–1940) G11");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Capitalism in the USA ");
+        jButton2.setText("Capitalism in the USA (1900–1940) G11");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -166,7 +166,7 @@ public class G11Notes extends javax.swing.JFrame
 
         jLabel2.setText("Term 2:");
 
-        jButton3.setText("Apartheid South Africa ");
+        jButton3.setText("Apartheid South Africa (1940s–1960s) G11");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -175,7 +175,7 @@ public class G11Notes extends javax.swing.JFrame
 
         jLabel4.setText("Term 3: ");
 
-        jButton4.setText(" Ideas of Race in the Late 19th and 20th Centuries");
+        jButton4.setText(" Ideas of Race in the Late 19th and 20th Centuries G11");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -292,22 +292,22 @@ public class G11Notes extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("CommunismNotesG11").setVisible(true);
+        new NotesDisplay(jButton1.getText()).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("ApartheidNotesG11").setVisible(true);
+        new NotesDisplay(jButton3.getText()).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("Late19And20CenturyNotesG11").setVisible(true);
+        new NotesDisplay(jButton4.getText()).setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
-        new NotesDisplay("CapitalismNotesG11").setVisible(true);
+        new NotesDisplay(jButton2.getText()).setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -155,18 +155,23 @@ public class G11Quiz extends javax.swing.JFrame
 
         jLabel1.setText("Term 1: ");
 
-        jButton1.setText("Communism in Russia ");
+        jButton1.setText("CommunismRussia");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Capitalism in the USA ");
+        jButton2.setText("Capitalism");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Term 2:");
 
-        jButton3.setText("Apartheid South Africa ");
+        jButton3.setText("ApartheidSA");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -175,7 +180,7 @@ public class G11Quiz extends javax.swing.JFrame
 
         jLabel4.setText("Term 3: ");
 
-        jButton4.setText(" Ideas of Race in the Late 19th and 20th Centuries");
+        jButton4.setText("World_15th_16th_Centuries_Quiz");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -291,15 +296,19 @@ public class G11Quiz extends javax.swing.JFrame
     }//GEN-LAST:event_BtnHelpMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        new QuizDisplay("11", jButton1.getText()).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new QuizDisplay("11", jButton2.getText()).setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        new QuizDisplay("11", jButton3.getText()).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        new QuizDisplay("11", jButton4.getText()).setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void BtnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutActionPerformed
