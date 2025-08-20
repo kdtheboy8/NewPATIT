@@ -1,28 +1,20 @@
-
-import java.awt.MouseInfo;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kudamlambo
  */
-public class G8Notes extends javax.swing.JFrame 
-{
+public class NotesForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form Menu
+     * Creates new form Notes
      */
-    
-    public G8Notes() {
+    public NotesForm() {
         initComponents();
     }
 
@@ -42,19 +34,10 @@ public class G8Notes extends javax.swing.JFrame
         BtnNotes = new javax.swing.JButton();
         BtnQuiz = new javax.swing.JButton();
         BtnFAQs = new javax.swing.JButton();
-        BtnLogOut = new javax.swing.JButton();
+        BtnSettings = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         LBLLogo2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel5 = new javax.swing.JPanel();
-        LBLTerm1 = new javax.swing.JLabel();
-        BtnTopic1 = new javax.swing.JButton();
-        BtnTopic2 = new javax.swing.JButton();
-        LBLTerm2 = new javax.swing.JLabel();
-        BtnTopic3 = new javax.swing.JButton();
-        LBLTerm3 = new javax.swing.JLabel();
-        BtnTopic4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,20 +45,10 @@ public class G8Notes extends javax.swing.JFrame
         jPanel1.setForeground(new java.awt.Color(255, 153, 51));
 
         LBLlogo.setFont(new java.awt.Font("Apple Chancery", 3, 48)); // NOI18N
-        LBLlogo.setText("Notes ");
+        LBLlogo.setText("Notes");
 
         BtnHelp.setBackground(new java.awt.Color(255, 153, 51));
         BtnHelp.setText("?");
-        BtnHelp.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnHelpMouseClicked(evt);
-            }
-        });
-        BtnHelp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnHelpActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -86,9 +59,9 @@ public class G8Notes extends javax.swing.JFrame
                 .addComponent(BtnHelp)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(323, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LBLlogo, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(324, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,6 +86,11 @@ public class G8Notes extends javax.swing.JFrame
         BtnQuiz.setBackground(new java.awt.Color(0, 0, 0));
         BtnQuiz.setForeground(new java.awt.Color(255, 255, 255));
         BtnQuiz.setText("Quiz");
+        BtnQuiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnQuizActionPerformed(evt);
+            }
+        });
 
         BtnFAQs.setBackground(new java.awt.Color(0, 0, 0));
         BtnFAQs.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,14 +101,9 @@ public class G8Notes extends javax.swing.JFrame
             }
         });
 
-        BtnLogOut.setBackground(new java.awt.Color(0, 0, 0));
-        BtnLogOut.setForeground(new java.awt.Color(255, 255, 255));
-        BtnLogOut.setText("Log Out");
-        BtnLogOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnLogOutActionPerformed(evt);
-            }
-        });
+        BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
+        BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSettings.setText("Log Out");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -139,120 +112,36 @@ public class G8Notes extends javax.swing.JFrame
             .addComponent(BtnNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
             .addComponent(BtnFAQs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(BtnQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(BtnFAQs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addComponent(BtnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 51));
 
         LBLLogo2.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
-        LBLLogo2.setText("Grade 8");
-
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        LBLTerm1.setText("Term 1: ");
-
-        BtnTopic1.setText("Industiral Revolution");
-        BtnTopic1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTopic1ActionPerformed(evt);
-            }
-        });
-
-        BtnTopic2.setText(" Mineral Revolution of South Africa ");
-        BtnTopic2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTopic2ActionPerformed(evt);
-            }
-        });
-
-        LBLTerm2.setText("Term 2:");
-
-        BtnTopic3.setText("Scramble for Africa");
-        BtnTopic3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTopic3ActionPerformed(evt);
-            }
-        });
-
-        LBLTerm3.setText("Term 3: ");
-
-        BtnTopic4.setText("World War I");
-        BtnTopic4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTopic4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(118, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LBLTerm3)
-                    .addComponent(LBLTerm1)
-                    .addComponent(LBLTerm2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(BtnTopic4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(BtnTopic1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(BtnTopic2)))
-                        .addGap(412, 543, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(BtnTopic3)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLTerm1)
-                    .addComponent(BtnTopic2)
-                    .addComponent(BtnTopic1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLTerm2)
-                    .addComponent(BtnTopic3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLTerm3)
-                    .addComponent(BtnTopic4))
-                .addContainerGap(73, Short.MAX_VALUE))
-        );
-
-        jScrollPane1.setViewportView(jPanel5);
+        LBLLogo2.setText("Welcome to History ED");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 324, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -262,16 +151,16 @@ public class G8Notes extends javax.swing.JFrame
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(LBLLogo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(LBLLogo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(LBLLogo2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -298,49 +187,50 @@ public class G8Notes extends javax.swing.JFrame
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
-        String notes = "This is the notes screen. This is where you can select a topic you want to read. ";
-        notes += "In order to do so, first select a grade, after selecting a grade then after click on the topic ";
-        notes += "you would like to do ";
-        JOptionPane.showMessageDialog(null, notes , "Help - Notes Screen" , JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_BtnHelpActionPerformed
-
-    private void BtnHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHelpMouseClicked
-        
-    }//GEN-LAST:event_BtnHelpMouseClicked
-
-    private void BtnTopic1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic1ActionPerformed
-        this.setVisible(false);
-        new NotesDisplay(BtnTopic1.getText()).setVisible(true);         
-    }//GEN-LAST:event_BtnTopic1ActionPerformed
-
-    private void BtnTopic2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic2ActionPerformed
-        this.setVisible(false);
-        new NotesDisplay(BtnTopic2.getText()).setVisible(true);
-    }//GEN-LAST:event_BtnTopic2ActionPerformed
-
-    private void BtnTopic3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic3ActionPerformed
-        this.setVisible(false);
-        new NotesDisplay(BtnTopic3.getText()).setVisible(true);
-    }//GEN-LAST:event_BtnTopic3ActionPerformed
-
-    private void BtnTopic4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTopic4ActionPerformed
-        this.setVisible(false);
-        new NotesDisplay(BtnTopic4.getText()).setVisible(true);
-    }//GEN-LAST:event_BtnTopic4ActionPerformed
-
     private void BtnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNotesActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new Notes().setVisible(true);
     }//GEN-LAST:event_BtnNotesActionPerformed
 
-    private void BtnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutActionPerformed
+    private void BtnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuizActionPerformed
         this.setVisible(false);
-        new HistoryED().setVisible(true);
-    }//GEN-LAST:event_BtnLogOutActionPerformed
+        new QuizDisplay("G8", "G8").setVisible(true);
+    }//GEN-LAST:event_BtnQuizActionPerformed
 
     private void BtnFAQsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFAQsActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new faqs().setVisible(true);
     }//GEN-LAST:event_BtnFAQsActionPerformed
+
+    private void BtnViewResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnViewResultsActionPerformed
+        // Ask user if they are a teacher or student
+        String[] options = {"Teacher", "Student"};
+        int choice = JOptionPane.showOptionDialog(this, 
+            "Are you a teacher or student?", 
+            "Select Role", 
+            JOptionPane.DEFAULT_OPTION, 
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            options, 
+            options[0]);
+        
+        if (choice == 0) {
+            // Teacher
+            this.setVisible(false);
+            new TeacherResultsViewer().setVisible(true);
+        } else if (choice == 1) {
+            // Student - prompt for email
+            String email = JOptionPane.showInputDialog(this, 
+                "Enter your email address:", 
+                "Student Email", 
+                JOptionPane.QUESTION_MESSAGE);
+            
+            if (email != null && !email.trim().isEmpty()) {
+                this.setVisible(false);
+                new StudentResultsViewer(email.trim()).setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_BtnViewResultsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,33 +263,22 @@ public class G8Notes extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new G8Notes().setVisible(true);
+                new Menu1().setVisible(true);
             }
         });
     }
 
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnFAQs;
     private javax.swing.JButton BtnHelp;
-    private javax.swing.JButton BtnLogOut;
     private javax.swing.JButton BtnNotes;
     private javax.swing.JButton BtnQuiz;
-    private javax.swing.JButton BtnTopic1;
-    private javax.swing.JButton BtnTopic2;
-    private javax.swing.JButton BtnTopic3;
-    private javax.swing.JButton BtnTopic4;
+    private javax.swing.JButton BtnSettings;
     private javax.swing.JLabel LBLLogo2;
-    private javax.swing.JLabel LBLTerm1;
-    private javax.swing.JLabel LBLTerm2;
-    private javax.swing.JLabel LBLTerm3;
     private javax.swing.JLabel LBLlogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-   
 }

@@ -1,19 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
+
+import java.awt.MouseInfo;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 
 /**
- * FAQs - A simple class to display frequently asked questions and answers
+ * FAQs Screen for HistoryEd Application
+ * This class displays frequently asked questions and their answers
+ * 
  * @author kudamlambo
  */
-public class faqs extends javax.swing.JFrame {
-    
+public class faqs extends javax.swing.JFrame 
+{
+    /**
+     * Constructor - initializes the form and sets up FAQ functionality
+     */
     public faqs() {
         initComponents();
-        loadFAQs();
+        setupFAQClickListeners(); // Make FAQ questions clickable
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -23,162 +33,476 @@ public class faqs extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainPanel = new javax.swing.JPanel();
-        headerPanel = new javax.swing.JPanel();
-        titleLabel = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
-        scrollPane = new javax.swing.JScrollPane();
-        faqArea = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        LBLlogo = new javax.swing.JLabel();
+        BtnHelp = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        BtnNotes = new javax.swing.JButton();
+        BtnQuiz = new javax.swing.JButton();
+        BtnFAQs = new javax.swing.JButton();
+        BtnLogOut = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        LBLLogo2 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel5 = new javax.swing.JPanel();
+        LBLFAQ1 = new javax.swing.JLabel();
+        LBLFAQ2 = new javax.swing.JLabel();
+        LBLFAQ3 = new javax.swing.JLabel();
+        LBLFAQ4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Frequently Asked Questions - HistoryEd");
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
-        mainPanel.setBackground(new java.awt.Color(255, 153, 51));
-        mainPanel.setLayout(new java.awt.BorderLayout());
+        // Top panel with title and help button
+        jPanel1.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel1.setForeground(new java.awt.Color(255, 153, 51));
 
-        headerPanel.setBackground(new java.awt.Color(255, 153, 51));
-        headerPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 20, 10, 20));
-        headerPanel.setLayout(new java.awt.BorderLayout());
+        LBLlogo.setFont(new java.awt.Font("Apple Chancery", 3, 48)); // NOI18N
+        LBLlogo.setText("FAQs");
 
-        titleLabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        titleLabel.setForeground(new java.awt.Color(255, 255, 255));
-        titleLabel.setText("Frequently Asked Questions");
-        headerPanel.add(titleLabel, java.awt.BorderLayout.WEST);
-
-        btnBack.setPreferredSize(new java.awt.Dimension(120, 35));
-        btnBack.setText("Back to Menu");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+        BtnHelp.setBackground(new java.awt.Color(255, 153, 51));
+        BtnHelp.setText("?");
+        BtnHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnHelpMouseClicked(evt);
             }
         });
-        headerPanel.add(btnBack, java.awt.BorderLayout.EAST);
+        BtnHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnHelpActionPerformed(evt);
+            }
+        });
 
-        mainPanel.add(headerPanel, java.awt.BorderLayout.NORTH);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnHelp)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(323, Short.MAX_VALUE)
+                .addComponent(LBLlogo, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(324, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(LBLlogo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnHelp))
+        );
 
-        scrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        // Side navigation panel
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        faqArea.setBackground(new java.awt.Color(255, 255, 255));
-        faqArea.setEditable(false);
-        faqArea.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        faqArea.setLineWrap(true);
-        faqArea.setWrapStyleWord(true);
-        scrollPane.setViewportView(faqArea);
+        BtnNotes.setBackground(new java.awt.Color(0, 0, 0));
+        BtnNotes.setForeground(new java.awt.Color(255, 255, 255));
+        BtnNotes.setText("Notes");
+        BtnNotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnNotesActionPerformed(evt);
+            }
+        });
 
-        mainPanel.add(scrollPane, java.awt.BorderLayout.CENTER);
+        BtnQuiz.setBackground(new java.awt.Color(0, 0, 0));
+        BtnQuiz.setForeground(new java.awt.Color(255, 255, 255));
+        BtnQuiz.setText("Quiz");
+
+        BtnFAQs.setBackground(new java.awt.Color(0, 0, 0));
+        BtnFAQs.setForeground(new java.awt.Color(255, 255, 255));
+        BtnFAQs.setText("FAQs");
+        BtnFAQs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnFAQsActionPerformed(evt);
+            }
+        });
+
+        BtnLogOut.setBackground(new java.awt.Color(0, 0, 0));
+        BtnLogOut.setForeground(new java.awt.Color(255, 255, 255));
+        BtnLogOut.setText("Log Out");
+        BtnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLogOutActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(BtnFAQs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnFAQs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        // Main content panel
+        jPanel3.setBackground(new java.awt.Color(255, 153, 51));
+
+        LBLLogo2.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
+        LBLLogo2.setText("Frequently Asked Questions");
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        // FAQ Questions - Simplified to 4 main questions
+        LBLFAQ1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        LBLFAQ1.setForeground(new java.awt.Color(0, 0, 0));
+        LBLFAQ1.setText("Q: How do I create an account?");
+
+        LBLFAQ2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        LBLFAQ2.setForeground(new java.awt.Color(0, 0, 0));
+        LBLFAQ2.setText("Q: How do I take a quiz?");
+
+        LBLFAQ3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        LBLFAQ3.setForeground(new java.awt.Color(0, 0, 0));
+        LBLFAQ3.setText("Q: What topics are available?");
+
+        LBLFAQ4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        LBLFAQ4.setForeground(new java.awt.Color(0, 0, 0));
+        LBLFAQ4.setText("Q: How do I navigate the application?");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LBLFAQ1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LBLFAQ2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LBLFAQ3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LBLFAQ4, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(LBLFAQ1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(LBLFAQ2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(LBLFAQ3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(LBLFAQ4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(LBLFAQ5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(LBLFAQ6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(LBLFAQ7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(LBLFAQ8)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jScrollPane1.setViewportView(jPanel5);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(LBLLogo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(LBLLogo2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        this.setVisible(false);
-        new Menu1().setVisible(true);
-    }//GEN-LAST:event_btnBackActionPerformed
-    
-    /**
-     * Load and display frequently asked questions
-     */
-    private void loadFAQs() {
-        StringBuilder sb = new StringBuilder();
+    private void setupFAQClickListeners() {
+        // Make FAQ labels clickable and add mouse listeners
+        LBLFAQ1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showFAQAnswer(1);
+            }
+        });
         
-        sb.append("FREQUENTLY ASKED QUESTIONS\n");
-        sb.append("=".repeat(50)).append("\n\n");
+        LBLFAQ2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showFAQAnswer(2);
+            }
+        });
         
-        // FAQ 1: How to use the application
-        sb.append("1. HOW DO I USE THE HISTORYED APPLICATION?\n");
-        sb.append("   Answer: HistoryEd is an educational application designed to help students learn history.\n");
-        sb.append("   • Use the Notes section to read educational content by grade level\n");
-        sb.append("   • Take quizzes to test your knowledge in the Quiz section\n");
-        sb.append("   • View your results in the View Results section\n");
-        sb.append("   • Access FAQs for help and guidance\n\n");
+        LBLFAQ3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showFAQAnswer(3);
+            }
+        });
         
-        // FAQ 2: How to take quizzes
-        sb.append("2. HOW DO I TAKE A QUIZ?\n");
-        sb.append("   Answer: To take a quiz:\n");
-        sb.append("   • Click on the 'Quiz' button in the main menu\n");
-        sb.append("   • Select your grade level and topic\n");
-        sb.append("   • Read each question carefully\n");
-        sb.append("   • Select your answer from the multiple choice options\n");
-        sb.append("   • Use 'Previous' and 'Next' buttons to navigate\n");
-        sb.append("   • Click 'Finish Quiz' when you're done\n");
-        sb.append("   • View your results immediately after completion\n\n");
+        LBLFAQ4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showFAQAnswer(4);
+            }
+        });
         
-        // FAQ 3: How to view results
-        sb.append("3. HOW DO I VIEW MY QUIZ RESULTS?\n");
-        sb.append("   Answer: To view your results:\n");
-        sb.append("   • Click on 'View Results' in the main menu\n");
-        sb.append("   • Select whether you are a 'Student' or 'Teacher'\n");
-        sb.append("   • If you're a student, enter your email address\n");
-        sb.append("   • Your results will be displayed with scores and percentages\n");
-        sb.append("   • Teachers can view all student results\n\n");
+        LBLFAQ5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showFAQAnswer(5);
+            }
+        });
         
-        // FAQ 4: How to access notes
-        sb.append("4. HOW DO I ACCESS EDUCATIONAL NOTES?\n");
-        sb.append("   Answer: To access notes:\n");
-        sb.append("   • Click on the 'Notes' button in the main menu\n");
-        sb.append("   • Select your grade level (G8, G9, G10, G11, or G12)\n");
-        sb.append("   • Choose the specific topic you want to study\n");
-        sb.append("   • Read through the educational content\n");
-        sb.append("   • Use the back button to return to the main menu\n\n");
+        LBLFAQ6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showFAQAnswer(6);
+            }
+        });
         
-        // FAQ 5: Grade levels and topics
-        sb.append("5. WHAT GRADE LEVELS AND TOPICS ARE AVAILABLE?\n");
-        sb.append("   Answer: The application covers:\n");
-        sb.append("   • Grade 8: Industrial Revolution, Mineral Revolution, Scramble for Africa, World War I\n");
-        sb.append("   • Grade 9: Cold War, World War II, Turning Points in South African History\n");
-        sb.append("   • Grade 10: Colonial Expansion, French Revolution, 15th & 16th Centuries, Transformations\n");
-        sb.append("   • Grade 11: Apartheid, Capitalism, Communism, Ideas of Race\n");
-        sb.append("   • Grade 12: Civil Resistance, Civil Society Protests\n\n");
+        LBLFAQ7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showFAQAnswer(7);
+            }
+        });
         
-        // FAQ 6: Teacher access
-        sb.append("6. HOW DO TEACHERS USE THE APPLICATION?\n");
-        sb.append("   Answer: Teachers can:\n");
-        sb.append("   • View all student quiz results\n");
-        sb.append("   • Monitor student progress across topics\n");
-        sb.append("   • Access educational content for lesson planning\n");
-        sb.append("   • Use the application as a teaching tool\n");
-        sb.append("   • Track class performance and identify areas for improvement\n\n");
-        
-        // FAQ 7: Contact information
-        sb.append("7. HOW CAN I GET MORE HELP?\n");
-        sb.append("    Answer: For additional support:\n");
-        sb.append("    • Ask your teacher for guidance\n");
-        sb.append("    • Review the notes section for detailed explanations\n");
-        sb.append("    • Practice with quizzes to improve understanding\n");
-        sb.append("    • Use the application regularly to build knowledge\n\n");
-        
-        sb.append("Thank you for using HistoryEd!\n");
-        sb.append("We hope this application helps you learn and succeed in your history studies.\n");
-        
-        faqArea.setText(sb.toString());
+        LBLFAQ8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showFAQAnswer(8);
+            }
+        });
     }
     
+    private void showFAQAnswer(int faqNumber) {
+        String answer = "";
+        String title = "";
+        
+        switch(faqNumber) {
+            case 1:
+                title = "Creating an Account";
+                answer = "To create an account in HistoryEd:\n\n" +
+                        "1. Click on the 'SignUp' button on the main screen\n" +
+                        "2. Fill in your personal details (First Name, Surname)\n" +
+                        "3. Enter your email address\n" +
+                        "4. Create a password\n" +
+                        "5. Click 'SignUp' to complete registration\n\n" +
+                        "Your account will be created and you can then log in using your email and password.";
+                break;
+            case 2:
+                title = "Available Grades and Topics";
+                answer = "HistoryEd covers Grades 8-12 with the following topics:\n\n" +
+                        "Grade 8: Industrial Revolution, Mineral Revolution, Scramble for Africa, World War I\n" +
+                        "Grade 9: Nuclear Age and Cold War, Nazi Germany and World War II, Turning Points in SA History\n" +
+                        "Grade 10: French Revolution, Colonial Expansion, 15th-16th Century World History, Transformations\n" +
+                        "Grade 11: Ideas of Race, Apartheid SA, Capitalism in USA, Communism in Russia\n" +
+                        "Grade 12: Civil Resistance, Civil Society Protests\n\n" +
+                        "Each grade has comprehensive notes and quizzes for each topic.";
+                break;
+            case 3:
+                title = "Taking Quizzes and Viewing Results";
+                answer = "To take a quiz and view results:\n\n" +
+                        "1. Click on 'Quiz' from the main menu\n" +
+                        "2. Select your grade (G8-G12)\n" +
+                        "3. Choose a topic to quiz on\n" +
+                        "4. Answer the multiple choice questions\n" +
+                        "5. Submit your quiz to see your score and percentage\n" +
+                        "6. Your results are automatically saved\n\n" +
+                        "You can retake quizzes to improve your scores.";
+                break;
+            case 4:
+                title = "Teacher Access to Student Results";
+                answer = "Yes, teachers can view student quiz results:\n\n" +
+                        "• Teachers have access to a dedicated results viewer\n" +
+                        "• They can see all student quiz scores and percentages\n" +
+                        "• Results can be filtered by topic or viewed for all topics\n" +
+                        "• This helps teachers track student progress and identify areas needing attention\n" +
+                        "• Student privacy is maintained while providing necessary academic oversight.";
+                break;
+            case 5:
+                title = "Historical Periods Covered";
+                answer = "HistoryEd covers a comprehensive range of historical periods:\n\n" +
+                        "• Late 19th and 20th Centuries\n" +
+                        "• Industrial and Mineral Revolutions\n" +
+                        "• Colonial expansion and the Scramble for Africa\n" +
+                        "• World Wars I and II\n" +
+                        "• Cold War and Nuclear Age\n" +
+                        "• Apartheid South Africa (1940s-1960s)\n" +
+                        "• Civil resistance movements (1970s-1980s)\n" +
+                        "• French Revolution and 15th-16th century world history\n\n" +
+                        "The curriculum follows the South African CAPS curriculum requirements.";
+                break;
+            case 6:
+                title = "Navigation Guide";
+                answer = "Navigating HistoryEd is simple:\n\n" +
+                        "• Use the black sidebar buttons to access different sections\n" +
+                        "• 'Notes' - Access study materials for all grades\n" +
+                        "• 'Quiz' - Take quizzes on various topics\n" +
+                        "• 'FAQs' - View frequently asked questions (this section)\n" +
+                        "• 'Log Out' - Return to the main login screen\n\n" +
+                        "Each section has clear navigation and you can always return to the main menu.";
+                break;
+            case 7:
+                title = "Forgotten Password";
+                answer = "If you forget your password:\n\n" +
+                        "Unfortunately, there is currently no automated password reset feature.\n\n" +
+                        "To resolve this:\n" +
+                        "1. Contact your teacher or school administrator\n" +
+                        "2. They can help you reset your account\n" +
+                        "3. You may need to create a new account with a different email\n\n" +
+                        "For future reference, please keep your login credentials in a safe place.";
+                break;
+            case 8:
+                title = "Technical Support";
+                answer = "If you encounter technical issues:\n\n" +
+                        "1. First, try refreshing the application\n" +
+                        "2. Check your internet connection if applicable\n" +
+                        "3. Contact your teacher or school IT administrator\n" +
+                        "4. Make sure you're using a compatible Java version\n" +
+                        "5. Restart the application if it becomes unresponsive\n\n" +
+                        "For persistent issues, please report them to your school's technical support team.";
+                break;
+        }
+        
+        JOptionPane.showMessageDialog(this, answer, "FAQ: " + title, JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
+        String help = "Welcome to the FAQs section!\n\n" +
+                     "This section contains frequently asked questions about the HistoryEd application.\n\n" +
+                     "To get answers:\n" +
+                     "• Click on any question to see its detailed answer\n" +
+                     "• Questions cover account creation, navigation, quizzes, and more\n" +
+                     "• Use the scroll bar if you need to see more questions\n\n" +
+                     "If you don't find your answer here, please contact your teacher.";
+        JOptionPane.showMessageDialog(null, help, "Help - FAQs Screen", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_BtnHelpActionPerformed
+
+    private void BtnHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHelpMouseClicked
+        
+    }//GEN-LAST:event_BtnHelpMouseClicked
+
+    private void BtnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNotesActionPerformed
+        this.setVisible(false);
+        new Notes().setVisible(true);
+    }//GEN-LAST:event_BtnNotesActionPerformed
+
+    private void BtnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutActionPerformed
+        this.setVisible(false);
+        new HistoryED().setVisible(true);
+    }//GEN-LAST:event_BtnLogOutActionPerformed
+
+    private void BtnFAQsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFAQsActionPerformed
+        // Already on FAQs page
+    }//GEN-LAST:event_BtnFAQsActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        new faqs().setVisible(true);
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Notes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Notes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Notes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Notes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new faqs().setVisible(true);
+            }
+        });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
-    private javax.swing.JTextArea faqArea;
-    private javax.swing.JPanel headerPanel;
-    private javax.swing.JPanel mainPanel;
-    private javax.swing.JScrollPane scrollPane;
-    private javax.swing.JLabel titleLabel;
+    private javax.swing.JButton BtnFAQs;
+    private javax.swing.JButton BtnHelp;
+    private javax.swing.JButton BtnLogOut;
+    private javax.swing.JButton BtnNotes;
+    private javax.swing.JButton BtnQuiz;
+    private javax.swing.JLabel LBLFAQ1;
+    private javax.swing.JLabel LBLFAQ2;
+    private javax.swing.JLabel LBLFAQ3;
+    private javax.swing.JLabel LBLFAQ4;
+    private javax.swing.JLabel LBLFAQ5;
+    private javax.swing.JLabel LBLFAQ6;
+    private javax.swing.JLabel LBLFAQ7;
+    private javax.swing.JLabel LBLFAQ8;
+    private javax.swing.JLabel LBLLogo2;
+    private javax.swing.JLabel LBLlogo;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-} 
+   
+}
