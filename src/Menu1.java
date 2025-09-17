@@ -34,7 +34,7 @@ public class Menu1 extends javax.swing.JFrame {
         BtnNotes = new javax.swing.JButton();
         BtnQuiz = new javax.swing.JButton();
         BtnFAQs = new javax.swing.JButton();
-        BtnLogOut = new javax.swing.JButton();
+        BtnSettings = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         LBLLogo2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -101,19 +101,14 @@ public class Menu1 extends javax.swing.JFrame {
             }
         });
 
-        BtnViewResults = new javax.swing.JButton();
-        BtnViewResults.setBackground(new java.awt.Color(0, 0, 0));
-        BtnViewResults.setForeground(new java.awt.Color(255, 255, 255));
-        BtnViewResults.setText("View Results");
-        BtnViewResults.addActionListener(new java.awt.event.ActionListener() {
+        BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
+        BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSettings.setText("Log Out");
+        BtnSettings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnViewResultsActionPerformed(evt);
+                BtnSettingsActionPerformed(evt);
             }
         });
-
-        BtnLogOut.setBackground(new java.awt.Color(0, 0, 0));
-        BtnLogOut.setForeground(new java.awt.Color(255, 255, 255));
-        BtnLogOut.setText("Log Out");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,8 +117,7 @@ public class Menu1 extends javax.swing.JFrame {
             .addComponent(BtnNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
             .addComponent(BtnFAQs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnViewResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,9 +129,7 @@ public class Menu1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(BtnFAQs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addComponent(BtnViewResults, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(100, Short.MAX_VALUE))
         );
 
@@ -207,7 +199,7 @@ public class Menu1 extends javax.swing.JFrame {
 
     private void BtnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuizActionPerformed
         this.setVisible(false);
-        new QuizDisplay("G8", "G8").setVisible(true);
+        new QuizDisplay().setVisible(true);
     }//GEN-LAST:event_BtnQuizActionPerformed
 
     private void BtnFAQsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFAQsActionPerformed
@@ -240,10 +232,14 @@ public class Menu1 extends javax.swing.JFrame {
             
             if (email != null && !email.trim().isEmpty()) {
                 this.setVisible(false);
-                new StudentResultsViewer(email.trim()).setVisible(true);
+                new StudentResultsDisplay().setVisible(true);
             }
         }
     }//GEN-LAST:event_BtnViewResultsActionPerformed
+
+    private void BtnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSettingsActionPerformed
+        new HistoryED().setVisible(true);
+    }//GEN-LAST:event_BtnSettingsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,8 +282,7 @@ public class Menu1 extends javax.swing.JFrame {
     private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnNotes;
     private javax.swing.JButton BtnQuiz;
-    private javax.swing.JButton BtnLogOut;
-    private javax.swing.JButton BtnViewResults;
+    private javax.swing.JButton BtnSettings;
     private javax.swing.JLabel LBLLogo2;
     private javax.swing.JLabel LBLlogo;
     private javax.swing.JPanel jPanel1;

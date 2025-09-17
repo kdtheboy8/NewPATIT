@@ -42,7 +42,7 @@ public class G9Quiz extends javax.swing.JFrame
         BtnNotes = new javax.swing.JButton();
         BtnQuiz = new javax.swing.JButton();
         BtnFAQs = new javax.swing.JButton();
-        BtnLogOut = new javax.swing.JButton();
+        BtnSettings = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         LBLLogo2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -112,9 +112,14 @@ public class G9Quiz extends javax.swing.JFrame
         BtnFAQs.setForeground(new java.awt.Color(255, 255, 255));
         BtnFAQs.setText("FAQs");
 
-        BtnLogOut.setBackground(new java.awt.Color(0, 0, 0));
-        BtnLogOut.setForeground(new java.awt.Color(255, 255, 255));
-        BtnLogOut.setText("Log Out");
+        BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
+        BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSettings.setText("Log Out");
+        BtnSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSettingsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -123,7 +128,7 @@ public class G9Quiz extends javax.swing.JFrame
             .addComponent(BtnNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
             .addComponent(BtnFAQs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +140,7 @@ public class G9Quiz extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnFAQs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -149,7 +154,7 @@ public class G9Quiz extends javax.swing.JFrame
 
         jLabel1.setText("Term 1: ");
 
-        jButton1.setText("ColdWar");
+        jButton1.setText("The  Cold War ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -158,21 +163,11 @@ public class G9Quiz extends javax.swing.JFrame
 
         jLabel2.setText("Term 2:");
 
-        jButton3.setText("WorldWar2");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jButton3.setText("World War II ");
 
         jLabel4.setText("Term 3: ");
 
-        jButton4.setText("Turning_Points_SA_History_Quiz");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        jButton4.setText("Turning Points in South African History");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -294,6 +289,10 @@ public class G9Quiz extends javax.swing.JFrame
         new QuizDisplay("9", jButton4.getText()).setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void BtnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSettingsActionPerformed
+        new HistoryED().setVisible(true);
+    }//GEN-LAST:event_BtnSettingsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -336,7 +335,7 @@ public class G9Quiz extends javax.swing.JFrame
     private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnNotes;
     private javax.swing.JButton BtnQuiz;
-    private javax.swing.JButton BtnLogOut;
+    private javax.swing.JButton BtnSettings;
     private javax.swing.JLabel LBLLogo2;
     private javax.swing.JLabel LBLlogo;
     private javax.swing.JButton jButton1;

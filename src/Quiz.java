@@ -290,10 +290,10 @@ public class Quiz extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, notes , "Help - Notes Screen" , JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_BtnHelpActionPerformed
 
-    private void BtnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutActionPerformed
+    private void BtnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSettingsActionPerformed
         this.setVisible(false);
         new HistoryED().setVisible(true);
-    }//GEN-LAST:event_BtnLogOutActionPerformed
+    }//GEN-LAST:event_BtnSettingsActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.setVisible(false);
@@ -330,7 +330,8 @@ public class Quiz extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            public void run() 
+            {
                 new Quiz().setVisible(true);
             }
         });

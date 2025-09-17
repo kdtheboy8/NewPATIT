@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -183,12 +184,11 @@ public class QuizDisplay extends javax.swing.JFrame
             
             // Read existing content
             if (file.exists()) {
-                BufferedReader reader = new BufferedReader(new FileReader(file));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    lines.add(line);
+                Scanner scanner = new Scanner(file);
+                while (scanner.hasNextLine()) {
+                    lines.add(scanner.nextLine());
                 }
-                reader.close();
+                scanner.close();
             }
             
             // Find if user already has results
@@ -271,7 +271,7 @@ public class QuizDisplay extends javax.swing.JFrame
         
         if (choice == JOptionPane.YES_OPTION) {
             this.setVisible(false);
-            new StudentResultsViewer(userEmail).setVisible(true);
+            new StudentResultsDisplay().setVisible(true);
         } else {
             this.setVisible(false);
         }

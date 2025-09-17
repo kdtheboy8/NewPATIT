@@ -156,10 +156,10 @@ public class TeacherResultsViewer extends JFrame {
                 return;
             }
             
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
+            Scanner scanner = new Scanner(file);
             
-            while ((line = reader.readLine()) != null) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
                 if (!line.trim().isEmpty()) {
                     String[] parts = line.split("#");
                     if (parts.length >= 2) {
@@ -203,7 +203,7 @@ public class TeacherResultsViewer extends JFrame {
                     }
                 }
             }
-            reader.close();
+            scanner.close();
             
             displayResults();
             JOptionPane.showMessageDialog(this, "Loaded " + allResults.size() + " results.", "Data Loaded", JOptionPane.INFORMATION_MESSAGE);
@@ -217,16 +217,14 @@ public class TeacherResultsViewer extends JFrame {
      * Display results in the text area
      */
     private void displayResults() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%-30s %-25s %-15s %-15s\n", "Email", "Quiz Topic", "Score", "Percentage"));
-        sb.append("=".repeat(85)).append("\n");
+        resultsArea.setText("");
+        resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", "Email", "Quiz Topic", "Score", "Percentage"));
+        resultsArea.append("=".repeat(85) + "\n");
         
         for (String[] result : allResults) {
-            sb.append(String.format("%-30s %-25s %-15s %-15s\n", 
+            resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", 
                 result[0], result[1], result[2], result[3]));
         }
-        
-        resultsArea.setText(sb.toString());
     }
     
     /**
@@ -236,9 +234,9 @@ public class TeacherResultsViewer extends JFrame {
         String searchText = searchField.getText().toLowerCase();
         String selectedTopic = (String) filterComboBox.getSelectedItem();
         
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%-30s %-25s %-15s %-15s\n", "Email", "Quiz Topic", "Score", "Percentage"));
-        sb.append("=".repeat(85)).append("\n");
+        resultsArea.setText("");
+        resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", "Email", "Quiz Topic", "Score", "Percentage"));
+        resultsArea.append("=".repeat(85) + "\n");
         
         int count = 0;
         for (String[] result : allResults) {
@@ -246,17 +244,15 @@ public class TeacherResultsViewer extends JFrame {
             boolean matchesTopic = selectedTopic.equals("All Topics") || result[1].equals(selectedTopic);
             
             if (matchesSearch && matchesTopic) {
-                sb.append(String.format("%-30s %-25s %-15s %-15s\n", 
+                resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", 
                     result[0], result[1], result[2], result[3]));
                 count++;
             }
         }
         
         if (count == 0) {
-            sb.append("No results match the current filter.\n");
+            resultsArea.append("No results match the current filter.\n");
         }
-        
-        resultsArea.setText(sb.toString());
     }
     
     /**

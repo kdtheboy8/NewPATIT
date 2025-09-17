@@ -1,9 +1,7 @@
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -34,7 +32,7 @@ public class NotesDisplay extends javax.swing.JFrame {
 
         try {
             // Try to read from TextFiles directory with .txt extension
-            Scanner scFile = new Scanner(new File("TextFiles/" + buttonClickedNotes + ".txt"));
+            Scanner scFile = new Scanner(new File(buttonClickedNotes + ".txt"));
             while (scFile.hasNextLine()) {
                 output += scFile.nextLine() + "\n";
             }
@@ -48,7 +46,8 @@ public class NotesDisplay extends javax.swing.JFrame {
     }
 
     // Convenience constructor for running directly without parameters
-    public NotesDisplay() {
+    public NotesDisplay() 
+    {
         this("Industiral Revolution G8");
     }
 
@@ -168,20 +167,16 @@ public class NotesDisplay extends javax.swing.JFrame {
         // Try to read from the TextFiles directory
         java.io.File file = new java.io.File(fileName);
         
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) 
+        try (Scanner scanner = new Scanner(file)) 
         {
-            // Use StringBuilder to efficiently build the file content
-            StringBuilder sb = new StringBuilder();
-            String line;
+            // Clear text area and append content directly
+            jTextArea.setText("");
             
-            // Read each line from the file and append it to the StringBuilder
-            while ((line = br.readLine()) != null)
+            // Read each line from the file and append it to the text area
+            while (scanner.hasNextLine())
             {
-                sb.append(line).append("\n");
+                jTextArea.append(scanner.nextLine() + "\n");
             }
-            
-            // Display the file content in the text area
-            jTextArea.setText(sb.toString());
             
             // Allow editing only if the user is a teacher
             jTextArea.setEditable(userDetails != null && "Teacher".equals(userDetails.getRole()));
@@ -191,7 +186,7 @@ public class NotesDisplay extends javax.swing.JFrame {
             // Show an error dialog if the file could not be read
             JOptionPane.showMessageDialog(this, "Could not read file: " + fileName + "\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_BtnReadActionPerformed
+    }
 
     private void BtnSaveEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveEditActionPerformed
         
@@ -216,15 +211,15 @@ public class NotesDisplay extends javax.swing.JFrame {
             //Stop the student from editing text file
             JOptionPane.showMessageDialog(this, "Only teachers can save edits.", "Access Denied", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_BtnSaveEditActionPerformed
+    }
 
-    private void BtnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifyActionPerformed
+    private void BtnModifyActionPerformed(java.awt.event.ActionEvent evt) {
         
          if (userDetails != null && "Teacher".equals(userDetails.getRole())) 
          {
              jTextArea.setEditable(true);
          }
-    }//GEN-LAST:event_BtnModifyActionPerformed
+    }
 
     /**
      * @param args the command line arguments
@@ -243,13 +238,13 @@ public class NotesDisplay extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TopicPicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotesDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TopicPicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotesDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TopicPicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotesDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TopicPicker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NotesDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

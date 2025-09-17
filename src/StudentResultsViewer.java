@@ -145,10 +145,10 @@ public class StudentResultsViewer extends JFrame {
                 return;
             }
             
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
+            Scanner scanner = new Scanner(file);
             
-            while ((line = reader.readLine()) != null) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
                 // Remove whitespace from beginning and end of line, then check if empty
                 if (!line.trim().isEmpty()) {
                     String[] parts = line.split("#");
@@ -193,7 +193,7 @@ public class StudentResultsViewer extends JFrame {
                     }
                 }
             }
-            reader.close();
+            scanner.close();
             
             displayStudentResults();
             
@@ -212,16 +212,14 @@ public class StudentResultsViewer extends JFrame {
      * Display student results in the text area
      */
     private void displayStudentResults() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%-30s %-25s %-15s %-15s\n", "Email", "Quiz Topic", "Score", "Percentage"));
-        sb.append("=".repeat(85)).append("\n");
+        resultsArea.setText("");
+        resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", "Email", "Quiz Topic", "Score", "Percentage"));
+        resultsArea.append("=".repeat(85) + "\n");
         
         for (String[] result : studentResults) {
-            sb.append(String.format("%-30s %-25s %-15s %-15s\n", 
+            resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", 
                 result[0], result[1], result[2], result[3]));
         }
-        
-        resultsArea.setText(sb.toString());
     }
     
     /**
@@ -230,26 +228,24 @@ public class StudentResultsViewer extends JFrame {
     private void filterResults() {
         String selectedTopic = (String) filterComboBox.getSelectedItem();
         
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%-30s %-25s %-15s %-15s\n", "Email", "Quiz Topic", "Score", "Percentage"));
-        sb.append("=".repeat(85)).append("\n");
+        resultsArea.setText("");
+        resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", "Email", "Quiz Topic", "Score", "Percentage"));
+        resultsArea.append("=".repeat(85) + "\n");
         
         int count = 0;
         for (String[] result : studentResults) {
             boolean matchesTopic = selectedTopic.equals("All Topics") || result[1].equals(selectedTopic);
             
             if (matchesTopic) {
-                sb.append(String.format("%-30s %-25s %-15s %-15s\n", 
+                resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", 
                     result[0], result[1], result[2], result[3]));
                 count++;
             }
         }
         
         if (count == 0) {
-            sb.append("No results match the current filter.\n");
+            resultsArea.append("No results match the current filter.\n");
         }
-        
-        resultsArea.setText(sb.toString());
     }
     
     /**
