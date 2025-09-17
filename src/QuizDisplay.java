@@ -1,6 +1,5 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+// Removed ArrayList import for IEB Grade 12 compatibility
 import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,8 +17,9 @@ public class QuizDisplay extends javax.swing.JFrame
     private String currentGrade;
     private String selectedQuiz;
     private QuizInterfaceClass qic;
-    private ArrayList<String> userAnswers = new ArrayList<>();
-    private ArrayList<String> correctAnswers = new ArrayList<>();
+    private String[] userAnswers = new String[100]; // Simple array for IEB Grade 12
+    private String[] correctAnswers = new String[100]; // Simple array for IEB Grade 12
+    private int answerCount = 0;
     private int score = 0;
     private String userEmail = "";
 
@@ -180,25 +180,28 @@ public class QuizDisplay extends javax.swing.JFrame
     private void writeResultToFile() {
         try {
             File file = new File("TextFiles/QuizResults.txt");
-            ArrayList<String> lines = new ArrayList<>();
+            String[] lines = new String[1000]; // Simple array for IEB Grade 12
+            int lineCount = 0;
             
             // Read existing content
             if (file.exists()) {
-                Scanner scanner = new Scanner(file);
-                while (scanner.hasNextLine()) {
-                    lines.add(scanner.nextLine());
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    lines[lineCount] = line;
+                    lineCount++;
                 }
-                scanner.close();
+                reader.close();
             }
             
             // Find if user already has results
             boolean userFound = false;
-            for (int i = 0; i < lines.size(); i++) {
-                if (lines.get(i).startsWith(userEmail + "#")) {
+            for (int i = 0; i < lineCount; i++) {
+                if (lines[i].startsWith(userEmail + "#")) {
                     // User exists, append new result
-                    String existingLine = lines.get(i);
+                    String existingLine = lines[i];
                     String newResult = selectedQuiz + "-" + score + "/" + totalQuestions;
-                    lines.set(i, existingLine + "#" + newResult);
+                    lines[i] = existingLine + "#" + newResult;
                     userFound = true;
                     break;
                 }
@@ -207,13 +210,14 @@ public class QuizDisplay extends javax.swing.JFrame
             // If user not found, create new line
             if (!userFound) {
                 String newLine = userEmail + "#" + selectedQuiz + "-" + score + "/" + totalQuestions;
-                lines.add(newLine);
+                lines[lineCount] = newLine;
+                lineCount++;
             }
             
             // Write back to file
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-            for (String line : lines) {
-                writer.write(line);
+            for (int i = 0; i < lineCount; i++) {
+                writer.write(lines[i]);
                 writer.newLine();
             }
             writer.close();
@@ -271,7 +275,7 @@ public class QuizDisplay extends javax.swing.JFrame
         
         if (choice == JOptionPane.YES_OPTION) {
             this.setVisible(false);
-            new StudentResultsDisplay().setVisible(true);
+            new StudentResultsViewer(userEmail).setVisible(true);
         } else {
             this.setVisible(false);
         }

@@ -1,7 +1,6 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
@@ -17,7 +16,8 @@ public class QuizInterfaceClass {
     private String currentGrade;
     private String currentQuiz;
 
-    ArrayList<String> quiz = new ArrayList<>();
+    String[] quiz = new String[1000]; 
+    private int quizCount = 0;
 
     public QuizInterfaceClass(String inCG, String inCQ) {
         currentGrade = inCG;

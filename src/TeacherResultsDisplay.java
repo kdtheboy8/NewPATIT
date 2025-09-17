@@ -1,22 +1,30 @@
-
-import javax.swing.JOptionPane;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import javax.swing.JOptionPane;
+import java.io.*;
+import java.util.Scanner;
+
 /**
  *
  * @author kudamlambo
  */
-public class Quiz extends javax.swing.JFrame {
+public class TeacherResultsDisplay extends javax.swing.JFrame {
 
+    // Data storage for student results
+    private String[] studentResults;
+    private int resultCount;
+    
     /**
-     * Creates new form Menu
+     * Creates new form Notes
      */
-    public Quiz() {
+    public TeacherResultsDisplay() {
         initComponents();
+        studentResults = new String[1000]; 
+        resultCount = 0;
+        loadStudentResults();
     }
 
     /**
@@ -32,7 +40,6 @@ public class Quiz extends javax.swing.JFrame {
         LBLlogo = new javax.swing.JLabel();
         BtnHelp = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        BtnChat = new javax.swing.JButton();
         BtnNotes = new javax.swing.JButton();
         BtnQuiz = new javax.swing.JButton();
         BtnFAQs = new javax.swing.JButton();
@@ -40,12 +47,6 @@ public class Quiz extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         LBLLogo2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,15 +54,10 @@ public class Quiz extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 153, 51));
 
         LBLlogo.setFont(new java.awt.Font("Apple Chancery", 3, 48)); // NOI18N
-        LBLlogo.setText("Quiz");
+        LBLlogo.setText("Results");
 
         BtnHelp.setBackground(new java.awt.Color(255, 153, 51));
         BtnHelp.setText("?");
-        BtnHelp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnHelpActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,36 +83,41 @@ public class Quiz extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        BtnChat.setBackground(new java.awt.Color(0, 0, 0));
-        BtnChat.setForeground(new java.awt.Color(255, 255, 255));
-        BtnChat.setText("Chat");
-
         BtnNotes.setBackground(new java.awt.Color(0, 0, 0));
         BtnNotes.setForeground(new java.awt.Color(255, 255, 255));
         BtnNotes.setText("Notes");
+        BtnNotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnNotesActionPerformed(evt);
+            }
+        });
 
         BtnQuiz.setBackground(new java.awt.Color(0, 0, 0));
         BtnQuiz.setForeground(new java.awt.Color(255, 255, 255));
         BtnQuiz.setText("Quiz");
+        BtnQuiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnQuizActionPerformed(evt);
+            }
+        });
 
         BtnFAQs.setBackground(new java.awt.Color(0, 0, 0));
         BtnFAQs.setForeground(new java.awt.Color(255, 255, 255));
         BtnFAQs.setText("FAQs");
+        BtnFAQs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnFAQsActionPerformed(evt);
+            }
+        });
 
         BtnSettings.setBackground(new java.awt.Color(0, 0, 0));
         BtnSettings.setForeground(new java.awt.Color(255, 255, 255));
         BtnSettings.setText("Log Out");
-        BtnSettings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSettingsActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BtnChat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
             .addComponent(BtnFAQs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -126,98 +127,30 @@ public class Quiz extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnChat, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(BtnQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(BtnFAQs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(BtnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 51));
 
         LBLLogo2.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
-        LBLLogo2.setText("Select Grade ");
-
-        jButton1.setText("Grade 8");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Grade 9 ");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Grade 10");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setText("Grade 11");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setText("Grade 12");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(422, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton4)
-                        .addComponent(jButton3)))
-                .addContainerGap(337, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(31, 31, 31)
-                .addComponent(jButton2)
-                .addGap(32, 32, 32)
-                .addComponent(jButton3)
-                .addGap(29, 29, 29)
-                .addComponent(jButton4)
-                .addGap(30, 30, 30)
-                .addComponent(jButton5)
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
+        LBLLogo2.setText("Student Quiz Results");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 468, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 416, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -227,7 +160,7 @@ public class Quiz extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(LBLLogo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
+            .addComponent(LBLLogo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,45 +193,154 @@ public class Quiz extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNotesActionPerformed
         this.setVisible(false);
-        new G8Quiz().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        new Notes().setVisible(true);
+    }//GEN-LAST:event_BtnNotesActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BtnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnQuizActionPerformed
         this.setVisible(false);
-        new G9Quiz().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        new QuizDisplay().setVisible(true);
+    }//GEN-LAST:event_BtnQuizActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void BtnFAQsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFAQsActionPerformed
         this.setVisible(false);
-        new G11Quiz().setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+        new faqs().setVisible(true);
+    }//GEN-LAST:event_BtnFAQsActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        this.setVisible(false);
-        new G12Quiz().setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void BtnViewResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnViewResultsActionPerformed
+        // Ask user if they are a teacher or student
+        String[] options = {"Teacher", "Student"};
+        int choice = JOptionPane.showOptionDialog(this, 
+            "Are you a teacher or student?", 
+            "Select Role", 
+            JOptionPane.DEFAULT_OPTION, 
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            options, 
+            options[0]);
+        
+        if (choice == 0) {
+            // Teacher
+            this.setVisible(false);
+            new TeacherResultsViewer().setVisible(true);
+        } else if (choice == 1) {
+            // Student - prompt for email
+            String email = JOptionPane.showInputDialog(this, 
+                "Enter your email address:", 
+                "Student Email", 
+                JOptionPane.QUESTION_MESSAGE);
+            
+            if (email != null && !email.trim().isEmpty()) {
+                this.setVisible(false);
+                new StudentResultsViewer(email.trim()).setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_BtnViewResultsActionPerformed
 
-    private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
-        // TODO add your handling code here:
-        String notes = "This is the Quiz screen. This is where you can select a topic you want to do a quiz on. ";
-        notes += "In order to do so, first select a grade, after selecting a grade then after click on the topic ";
-        notes += "you would like to do ";
-        JOptionPane.showMessageDialog(null, notes , "Help - Notes Screen" , JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_BtnHelpActionPerformed
+    private void comboFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFilterActionPerformed
+        filterResults();
+    }//GEN-LAST:event_comboFilterActionPerformed
 
-    private void BtnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutActionPerformed
-        this.setVisible(false);
-        new HistoryED().setVisible(true);
-    }//GEN-LAST:event_BtnLogOutActionPerformed
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        loadStudentResults();
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.setVisible(false);
-        new G10Quiz().setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    /**
+     * Load student results from the QuizResults.txt file using Scanner
+     */
+    private void loadStudentResults() {
+        resultCount = 0;
+        
+        try {
+            Scanner fileScanner = new Scanner(new File("TextFiles/QuizResults.txt"));
+            
+            while (fileScanner.hasNextLine()) {
+                String line = fileScanner.nextLine();
+                
+                if (!line.equals("")) {
+                    String[] parts = line.split("#");
+                    if (parts.length >= 2) {
+                        String email = parts[0];
+                        
+                        for (int i = 1; i < parts.length; i++) {
+                            String result = parts[i];
+                            String[] resultParts = result.split("-");
+                            
+                            if (resultParts.length >= 3) {
+                                String grade = resultParts[0];
+                                String topic = resultParts[1];
+                                String score = resultParts[2];
+                                
+                                String quizTopic = grade + "-" + topic;
+                                
+                                // Calculate percentage
+                                String[] scoreParts = score.split("/");
+                                if (scoreParts.length == 2) {
+                                    int correct = Integer.parseInt(scoreParts[0]);
+                                    int total = Integer.parseInt(scoreParts[1]);
+                                    double percentage = (double) correct / total * 100;
+                                    
+                                    String resultLine = email + " | " + quizTopic + " | " + score + " | " + percentage + "%";
+                                    studentResults[resultCount] = resultLine;
+                                    resultCount++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            fileScanner.close();
+            
+            displayStudentResults();
+            
+        } catch (Exception e) {
+            txtResults.setText("Error loading results: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Display student results in the text area using simple string concatenation
+     */
+    private void displayStudentResults() {
+        String displayText = "Email | Quiz Topic | Score | Percentage\n";
+        displayText = displayText + "=====================================\n";
+        
+        for (int i = 0; i < resultCount; i++) {
+            displayText = displayText + studentResults[i] + "\n";
+        }
+        
+        txtResults.setText(displayText);
+    }
+    
+    /**
+     * Filter results based on selected topic using simple string concatenation
+     */
+    private void filterResults() {
+        String selectedTopic = (String) comboFilter.getSelectedItem();
+        
+        String displayText = "Email | Quiz Topic | Score | Percentage\n";
+        displayText = displayText + "=====================================\n";
+        
+        int count = 0;
+        for (int i = 0; i < resultCount; i++) {
+            String resultLine = studentResults[i];
+            
+            if (selectedTopic.equals("All Topics") || resultLine.contains(selectedTopic)) {
+                displayText = displayText + resultLine + "\n";
+                count++;
+            }
+        }
+        
+        if (count == 0) {
+            displayText = displayText + "No results match the current filter.\n";
+        }
+        
+        txtResults.setText(displayText);
+    }
 
     /**
      * @param args the command line arguments
@@ -330,15 +372,13 @@ public class Quiz extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() 
-            {
-                new Quiz().setVisible(true);
+            public void run() {
+                new TeacherResultsDisplay().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnChat;
     private javax.swing.JButton BtnFAQs;
     private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnNotes;
@@ -346,15 +386,14 @@ public class Quiz extends javax.swing.JFrame {
     private javax.swing.JButton BtnSettings;
     private javax.swing.JLabel LBLLogo2;
     private javax.swing.JLabel LBLlogo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JComboBox<String> comboFilter;
+    private javax.swing.JButton btnRefresh;
+    private javax.swing.JLabel lblFilter;
+    private javax.swing.JScrollPane scrollResults;
+    private javax.swing.JTextArea txtResults;
     // End of variables declaration//GEN-END:variables
 }

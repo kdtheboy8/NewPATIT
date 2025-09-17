@@ -18,7 +18,8 @@ public class StudentResultsViewer extends JFrame {
     private JScrollPane scrollPane;
     
     // Data storage
-    private ArrayList<String[]> studentResults;
+    private String[] studentResults;
+    private int resultCount;
     private String studentEmail;
     
     public StudentResultsViewer(String email) {
@@ -136,7 +137,8 @@ public class StudentResultsViewer extends JFrame {
      * Load student's own results from the QuizResults.txt file
      */
     private void loadStudentResults() {
-        studentResults = new ArrayList<>();
+        studentResults = new String[1000]; // Simple array for IEB Grade 12
+        resultCount = 0;
         
         try {
             File file = new File("TextFiles/QuizResults.txt");
@@ -145,10 +147,10 @@ public class StudentResultsViewer extends JFrame {
                 return;
             }
             
-            Scanner scanner = new Scanner(file);
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
             
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
+            while ((line = reader.readLine()) != null) {
                 // Remove whitespace from beginning and end of line, then check if empty
                 if (!line.trim().isEmpty()) {
                     String[] parts = line.split("#");
@@ -176,14 +178,9 @@ public class StudentResultsViewer extends JFrame {
                                         int total = Integer.parseInt(scoreParts[1]);
                                         double percentage = (double) correct / total * 100;
                                         
-                                        String[] rowData = {
-                                            email,
-                                            quizTopic,
-                                            score,
-                                            String.format("%.1f%%", percentage)
-                                        };
-                                        
-                                        studentResults.add(rowData);
+                                        String resultLine = email + " | " + quizTopic + " | " + score + " | " + percentage + "%";
+                                        studentResults[resultCount] = resultLine;
+                                        resultCount++;
                                     } catch (NumberFormatException e) {
                                         // Skip invalid score format
                                     }
@@ -193,14 +190,14 @@ public class StudentResultsViewer extends JFrame {
                     }
                 }
             }
-            scanner.close();
+            reader.close();
             
             displayStudentResults();
             
-            if (studentResults.isEmpty()) {
+            if (resultCount == 0) {
                 JOptionPane.showMessageDialog(this, "No results found.", "No Results", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(this, "Loaded " + studentResults.size() + " results.", "Data Loaded", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Loaded " + resultCount + " results.", "Data Loaded", JOptionPane.INFORMATION_MESSAGE);
             }
             
         } catch (IOException e) {
@@ -209,43 +206,43 @@ public class StudentResultsViewer extends JFrame {
     }
     
     /**
-     * Display student results in the text area
+     * Display student results in the text area using simple string concatenation
      */
     private void displayStudentResults() {
-        resultsArea.setText("");
-        resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", "Email", "Quiz Topic", "Score", "Percentage"));
-        resultsArea.append("=".repeat(85) + "\n");
+        String displayText = "Email | Quiz Topic | Score | Percentage\n";
+        displayText = displayText + "=====================================\n";
         
-        for (String[] result : studentResults) {
-            resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", 
-                result[0], result[1], result[2], result[3]));
+        for (int i = 0; i < resultCount; i++) {
+            displayText = displayText + studentResults[i] + "\n";
         }
+        
+        resultsArea.setText(displayText);
     }
     
     /**
-     * Filter results based on selected topic
+     * Filter results based on selected topic using simple string concatenation
      */
     private void filterResults() {
         String selectedTopic = (String) filterComboBox.getSelectedItem();
         
-        resultsArea.setText("");
-        resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", "Email", "Quiz Topic", "Score", "Percentage"));
-        resultsArea.append("=".repeat(85) + "\n");
+        String displayText = "Email | Quiz Topic | Score | Percentage\n";
+        displayText = displayText + "=====================================\n";
         
         int count = 0;
-        for (String[] result : studentResults) {
-            boolean matchesTopic = selectedTopic.equals("All Topics") || result[1].equals(selectedTopic);
+        for (int i = 0; i < resultCount; i++) {
+            String resultLine = studentResults[i];
             
-            if (matchesTopic) {
-                resultsArea.append(String.format("%-30s %-25s %-15s %-15s\n", 
-                    result[0], result[1], result[2], result[3]));
+            if (selectedTopic.equals("All Topics") || resultLine.contains(selectedTopic)) {
+                displayText = displayText + resultLine + "\n";
                 count++;
             }
         }
         
         if (count == 0) {
-            resultsArea.append("No results match the current filter.\n");
+            displayText = displayText + "No results match the current filter.\n";
         }
+        
+        resultsArea.setText(displayText);
     }
     
     /**

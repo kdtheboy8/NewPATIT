@@ -232,7 +232,7 @@ public class NotesForm extends javax.swing.JFrame {
             
             if (email != null && !email.trim().isEmpty()) {
                 this.setVisible(false);
-                new StudentResultsDisplay().setVisible(true);
+                new StudentResultsViewer(email.trim()).setVisible(true);
             }
         }
     }//GEN-LAST:event_BtnViewResultsActionPerformed
